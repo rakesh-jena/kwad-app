@@ -1,0 +1,61 @@
+@import "./Style/fonts";
+@import "./Style/color";
+@import "./Style/custom/formTextField";
+
+body {
+  font-family: DM Sans Regular;
+}
+html, body {
+  height: 100%;
+}
+.link--Button.MuiButton-root {
+  color: $jellyBean;
+  padding: 0;
+  .MuiButton-label {
+    text-transform: none;
+    font-family: DM Sans Regular;
+    font-size: 15px;
+  }
+}
+
+.form--Button.MuiButton-containedPrimary {
+  width: 100%;
+  background-color: $blueWhale;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-family: DM Sans Regular;
+  border-radius: 15px;
+  text-transform: none;
+  font-weight: 400;
+  font-size: 15px;
+  &:hover {
+    background-color: $jellyBean;
+  }
+}
+
+Link a {
+  text-decoration: none;
+}
+
+.messageBox {
+  background-color: $jellyBean;
+  width: auto;
+  padding: 15px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  .messageBox--Text {
+    font-family: DM Sans Regular;
+    font-size: 18px;
+    margin: 0;
+    color: $veryLightShadeOfGray;
+  }
+}
+
+.pageTitle {
+  color: $blueWhale;
+  font-size: 25px;
+  font-family: Benzin Extra Bold;
+  display: inline-block;
+  transform: scale(1, 1.3);
+  letter-spacing: 1px;
+}

@@ -1,0 +1,36 @@
+@import "../../Style/color";
+
+.suggestions {
+  margin-top: 30px;
+  display: flex;
+  .suggestions--ItemsDiv {
+    padding-top: 8px;
+    .suggestions--ItemsDiv--Item {
+      width: auto;
+      height: 25px;
+      background-color: $lemongrass;
+      border-radius: 12px;
+      padding: 8px 16px 8px 16px;
+      color: $whiteSmoke;
+      font-family: "DM Sans Bold";
+      margin-right: 20px;
+    }
+  }
+  .suggestions--ItemsNav {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    background-color: $blueWhale;
+    color: $veryLightShadeOfGray;
+    border-radius: 12px;
+    cursor: pointer;
+  }
+  .suggestions--ItemsNavLeft {
+    @extend .suggestions--ItemsNav;
+    margin-right: 20px;
+  }
+  .suggestions--ItemsNavRight {
+    @extend .suggestions--ItemsNav;
+    margin-left: auto;
+  }
+}

@@ -1,0 +1,80 @@
+@import "./color";
+
+.left-panel {
+  height: calc(100vh - 80px);
+  .kwadLogo {
+    width: auto;
+    margin: auto;
+    display: block;
+  }
+}
+
+.login > * {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 30px;
+}
+
+.loginForm {
+  .loginForm--Paper--FormControl {
+    width: 100%;
+  }
+}
+.loginForm--Paper--Password {
+  margin-top: 20px;
+}
+.loginForm--Paper--ForgotPassword {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.kwadRight {
+  // width: 70%;
+  // padding-left: 15%;
+  // padding-right: 15%;
+  //height: auto;
+  .kwadRight--Paper--Header {
+    display: flex;
+    justify-content: space-between;
+    .kwadRight--Paper--Header--Link {
+      font-size: 15px;
+      font-weight: 400;
+      color: $jellyBean;
+    }
+  }
+  .kwadRight--Paper--Divider {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .kwadRight--Paper--SigninButton {
+    width: 100%;
+    background-color: $blueWhale;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-family: DM Sans Regular;
+    border-radius: 15px;
+    text-transform: none;
+    font-weight: 400;
+    font-size: 15px;
+  }
+  .kwadRight--Paper--SigninOption {
+    margin-top: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .kwadRight--Paper--GoogleButton {
+    width: 100%;
+    .kwadRight--Paper--GoogleButton--Button {
+      box-shadow: none;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      border: 1px solid $gray57;
+      border-radius: 15px;
+      background-color: inherit;
+    }
+  }
+}
