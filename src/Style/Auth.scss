@@ -1,25 +1,24 @@
 @import "./color";
 
 .left-panel {
-  height: calc(100vh - 80px);
+  height: calc(100vh - 48px);
   .kwadLogo {
     width: auto;
     margin: auto;
     display: block;
   }
 }
-
+.css-1pw81iq-MuiInputBase-root-MuiFilledInput-root {
+  border-radius: 10px;
+  border-top-left-radius: 10px !important;
+    border-top-right-radius: 10px !important;
+}
 .login > * {
   display: inline-block;
   vertical-align: middle;
   padding: 30px;
 }
 
-.loginForm {
-  .loginForm--Paper--FormControl {
-    width: 100%;
-  }
-}
 .loginForm--Paper--Password {
   margin-top: 20px;
 }
@@ -30,51 +29,29 @@
 
 .link {
   text-decoration: none;
+  letter-spacing: 1px;
 }
-
-.kwadRight {
-  // width: 70%;
-  // padding-left: 15%;
-  // padding-right: 15%;
-  //height: auto;
-  .kwadRight--Paper--Header {
-    display: flex;
-    justify-content: space-between;
-    .kwadRight--Paper--Header--Link {
-      font-size: 15px;
-      font-weight: 400;
-      color: $jellyBean;
-    }
-  }
-  .kwadRight--Paper--Divider {
-    margin-top: 20px;
-    margin-bottom: 20px;
-  }
-  .kwadRight--Paper--SigninButton {
-    width: 100%;
-    background-color: $blueWhale;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    font-family: DM Sans Regular;
-    border-radius: 15px;
-    text-transform: none;
-    font-weight: 400;
+.auth-header {
+  display: flex;
+  justify-content: space-between;
+  .link {
     font-size: 15px;
-  }
-  .kwadRight--Paper--SigninOption {
-    margin-top: 20px;
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  .kwadRight--Paper--GoogleButton {
-    width: 100%;
-    .kwadRight--Paper--GoogleButton--Button {
-      box-shadow: none;
-      padding-top: 10px;
-      padding-bottom: 10px;
-      border: 1px solid $gray57;
-      border-radius: 15px;
-      background-color: inherit;
-    }
+    font-weight: 400;
+    color: $jellyBean;
   }
 }
+.kwadRight--Paper--SigninButton {
+  width: 100%;
+  background-color: $blueWhale;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-family: DM Sans Regular;
+  border-radius: 10px;
+  text-transform: none;
+  font-weight: 400;
+  font-size: 15px;
+}
+.forgotPasswordForm--Paper--Instructions {
+  font-weight: 300;
+  color: rgb(150, 150, 150);
+}  

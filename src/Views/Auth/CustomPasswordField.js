@@ -1,9 +1,8 @@
 import React from "react";
-import { IconButton, OutlinedInput, InputAdornment, FormControl } from "@mui/material";
+import { IconButton, InputAdornment, FormControl, InputLabel, FilledInput } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 
 const CustomPasswordField = (props) => {
-  const { classes } = props;
   const [values, setValues] = React.useState({
     password: "",
     showPassword: false,
@@ -22,17 +21,16 @@ const CustomPasswordField = (props) => {
     event.preventDefault();
   };
 
-  return (
-    <div className="customPasswordField">
-      <FormControl className="customPasswordField--FormControl">
-        <OutlinedInput
-          classes={classes}
-          className="customPasswordField--FormControl--OutlinedInput"
-          type={values.showPassword ? "text" : "password"}
+  return (    
+      <FormControl fullWidth variant="filled">
+        <InputLabel sx={{lineHeight:'1'}} htmlFor="filled-adornment-password">Password</InputLabel>
+        <FilledInput sx={{borderRadius:"10px",}}
+          size="small"
+          disableUnderline
+          id="filled-adornment-password"
+          type={values.showPassword ? 'text' : 'password'}
           value={values.password}
-          InputProps={{ classes }}
-          name="password"
-          onChange={handleChange("password")}
+          onChange={handleChange('password')}
           endAdornment={
             <InputAdornment position="end">
               <IconButton
@@ -40,21 +38,13 @@ const CustomPasswordField = (props) => {
                 onClick={handleClickShowPassword}
                 onMouseDown={handleMouseDownPassword}
                 edge="end"
-                className="customPasswordField--FormControl--OutlinedInput--Visibility"
               >
-                {values.showPassword ? (
-                  <Visibility className="customPasswordField--FormControl--OutlinedInput--Visibility" />
-                ) : (
-                  <VisibilityOff className="customPasswordField--FormControl--OutlinedInput--Visibility" />
-                )}
+                {values.showPassword ? <VisibilityOff /> : <Visibility />}
               </IconButton>
             </InputAdornment>
           }
-          placeholder="Password"
-          labelWidth={70}
         />
       </FormControl>
-    </div>
   );
 };
 

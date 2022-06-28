@@ -1,65 +1,75 @@
-import React from "react";
+import { React, useState } from "react";
 import SidePanel from "./SidePanel";
 import { useNavigate } from "react-router-dom";
-import { Paper, Button, FormControl, TextField, Divider } from "@mui/material";
+import { Paper, Button, FormControl, FilledInput, Divider, Grid, InputLabel, Box } from "@mui/material";
 import { ArrowBackIosNew } from "@mui/icons-material";
 
 const ForgotPassword = (props) => {
   return (
-    <div className="forgotPassword">
-      <div className="forgotPassword--Left">
-        <SidePanel />
-      </div>
-      <div className="forgotPassword--Recover">
+    <Grid container spacing={5} p={3}>
+      <Grid item xs={8}>
+        <SidePanel/>
+      </Grid>
+      <Grid item xs={4}>
         <ForgotPasswordForm/>  
-      </div>
-    </div>
+      </Grid>
+    </Grid>
   );
 };
 
 const ForgotPasswordForm = () => {
     let history = useNavigate();
+    const [userData, setUserData] = useState({ email: ""});
+    const handleInputChange = (e) => {
+      setUserData((prevState) => {
+        return {
+          ...prevState,
+          [e.target.name]: e.target.value,
+        };
+      });
+    };
     return (
-      <div className="forgotPasswordForm">
-        <Paper elevation={0} className="forgotPasswordForm--Paper">
-          <Button
-            className="forgotPasswordForm--Paper--Back"
+      <Paper elevation={0} sx={{bgcolor:'transparent',position:'relative',top:'50%',transform:'translateY(-50%)',maxWidth:'90%',m:'auto'}}>
+          <Button sx={{border:'1px solid rgb(150, 150, 150)',mb:2,p:2}}
             onClick={() => history.goBack()}
           >
-            <ArrowBackIosNew className="forgotPasswordForm--Paper--Back--ArrorBackIcon" />
+            <ArrowBackIosNew  />
           </Button>
-          <div className="forgotPasswordForm--Paper--Title">
+          <Box>
             <span className="pageTitle">Forgot password?</span>
-          </div>
-          <div className="forgotPasswordForm--Paper--InstructionsDiv">
+          </Box>
+          <Box>
             <p className="forgotPasswordForm--Paper--Instructions">
               Enter the email address you used when you joined and we’ll send you
               instructions to reset your password.
             </p>
-          </div>
+          </Box>
   
-          <Divider className="forgotPasswordForm--Paper--Divider" />
+          <Divider sx={{mb:3}} />
           <div className="messageBox">
             <p className="messageBox--Text">
               If this email address was used to create an account, instructions to
               reset your password will be sent to you. Please check your email.
             </p>
           </div>
-          <div className="forgotPasswordForm--Paper--FormControlDiv">
-            <FormControl className="forgotPasswordForm--Paper--FormControl">
-              <TextField
-                id="outlined-textarea"
-                placeholder="Email"
-                multiline
-                className="form--TextField"
-              />
-            </FormControl>
-          </div>
-          <Button className="form--Button" variant="contained" color="primary">
+          <FormControl fullWidth variant="filled" sx={{mb:1}}>
+            <InputLabel sx={{lineHeight:'1'}} htmlFor="input-email">Email</InputLabel>
+            <FilledInput  sx={{borderRadius:"10px"}}
+              size="small"
+              disableUnderline
+              id="input-email"
+              name="email"
+              onChange={(e) => handleInputChange(e)}
+            />
+          </FormControl>
+          <Button className="form--Button" sx={{
+            "&.MuiButtonBase-root:hover": {
+              boxShadow:'none',
+            }
+          }} variant="contained" color="primary">
             Send Rest Instructions
           </Button>
         </Paper>
-      </div>
     );
   };
 

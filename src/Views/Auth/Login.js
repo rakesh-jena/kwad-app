@@ -1,6 +1,6 @@
 import { React, useState } from "react";
 import { Link } from "react-router-dom";
-import { TextField, Button, FormControl, Grid } from "@mui/material";
+import { FilledInput, Button, FormControl, Grid, InputLabel, Box } from "@mui/material";
 import CustomPasswordField from "./CustomPasswordField";
 import SidePanel from "./SidePanel";
 import Heading from "./Heading";
@@ -56,11 +56,11 @@ const Login = () => {
     });
   };
   return (
-    <Grid container spacing={5} p={5}>
+    <Grid container spacing={5} p={3}>
       <Grid item xs={8}>
         <SidePanel/>
       </Grid>
-      <Grid item xs={4}>
+      <Grid item xs={4} >
         <Heading
           title="Sign in"
           link="Create new account"
@@ -73,29 +73,32 @@ const Login = () => {
               <p className="messageBox--Text">{errorMessage.value}</p>
             </div>
           )}
-          <FormControl className="loginForm--Paper--FormControl">
-            <TextField
-              id="outlined-textarea"
-              placeholder="Email"
-              multiline
+          <FormControl fullWidth variant="filled" sx={{mb:1}}>
+            <InputLabel sx={{lineHeight:'1'}} htmlFor="input-username">Username</InputLabel>
+            <FilledInput  sx={{borderRadius:"10px"}}
+              size="small"
+              disableUnderline
+              id="input-username"
               name="username"
-              className="form--TextField"
               onChange={(e) => handleInputChange(e)}
             />
           </FormControl>
-          <div className="loginForm--Paper--Password">
-            <CustomPasswordField getPasword={getPassword} />
-          </div>
-          <div className="loginForm--Paper--ForgotPassword">
+          <CustomPasswordField getPasword={getPassword} />          
+          
             <Link to="/forgot-password" className="link">
-              <Button className="link--Button">Forgot password</Button>
+              <Button sx={{mt:2,mb:2,textTransform:"inherit",fontWeight:'400',fontSize:'16px',position:'relative',top:'50%'}}>Forgot password</Button>
             </Link>
-          </div>
+          
           <Button
             className="form--Button"
             onClick={handleSubmit}
             variant="contained"
             color="primary"
+            sx={{
+              "&.MuiButtonBase-root:hover": {
+                boxShadow:'none',
+              }
+            }}
           >
             Sign in
           </Button>

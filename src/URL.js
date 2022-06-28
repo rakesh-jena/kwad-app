@@ -3,7 +3,7 @@ import "./Style/Auth.scss";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ForgotPassword from "./Views/Auth/ForgotPassword";
 import Login from "./Views/Auth/Login";
-import PostSignUp from "./Views/Auth/PostSignUp";
+import Register from "./Views/Auth/Register";
 import PageNotFound from "./404";
 
 const URL = (props) => {
@@ -12,7 +12,7 @@ const URL = (props) => {
       <Routes>
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/" element={<Login />} />
-        <Route path="/postSignUp" element={<PostSignUp />} />
+        <Route path="/register" element={<Register />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
     </Router>

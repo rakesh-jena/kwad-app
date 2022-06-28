@@ -4,17 +4,41 @@
 
 body {
   font-family: DM Sans Regular;
+  background-color: rgb(249 249 249);
 }
 html, body {
   height: 100%;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+}
+.MuiFilledInput-root:focus {
+  border-color: rgba(234,76,137,0.4);
+    background-color: #fff !important;
+    -webkit-box-shadow: 0 0 0 4px rgb(234 76 137 / 10%);
+    box-shadow: 0 0 0 4px rgb(234 76 137 / 10%);
+}
+.MuiFilledInput-root:active{
+  border-color: #e7e7e9;
+    background-color: #fff !important;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+.MuiFilledInput-root:hover {
+  border-color: rgba(0,0,0,0.1);
+    background-color: #fff !important;
+    -webkit-box-shadow: 0 0 0 4px rgb(234 76 137 / 10%);
+    box-shadow: 0 0 0 4px rgb(234 76 137 / 10%);
 }
 .link--Button.MuiButton-root {
   color: $jellyBean;
   padding: 0;
   .MuiButton-label {
     text-transform: none;
-    font-family: DM Sans Regular;
-    font-size: 15px;
+    letter-spacing: 1px;
   }
 }
 
@@ -24,10 +48,11 @@ html, body {
   padding-top: 10px;
   padding-bottom: 10px;
   font-family: DM Sans Regular;
-  border-radius: 15px;
+  border-radius: 10px;
   text-transform: none;
   font-weight: 400;
   font-size: 15px;
+  box-shadow: none;
   &:hover {
     background-color: $jellyBean;
   }
@@ -42,10 +67,12 @@ Link a {
   width: auto;
   padding: 15px;
   border-radius: 15px;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
+  font-weight: 300;
+  text-align: left;
   .messageBox--Text {
     font-family: DM Sans Regular;
-    font-size: 18px;
+    font-size: 15px;
     margin: 0;
     color: $veryLightShadeOfGray;
   }
@@ -53,9 +80,10 @@ Link a {
 
 .pageTitle {
   color: $blueWhale;
-  font-size: 25px;
+  font-size: 22px;
   font-family: Benzin Extra Bold;
   display: inline-block;
   transform: scale(1, 1.3);
   letter-spacing: 1px;
+  text-transform: capitalize;
 }
