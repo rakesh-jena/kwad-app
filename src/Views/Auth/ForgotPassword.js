@@ -7,10 +7,10 @@ import { ArrowBackIosNew } from "@mui/icons-material";
 const ForgotPassword = (props) => {
   return (
     <Grid container spacing={5} p={3}>
-      <Grid item xs={8}>
+      <Grid item md={8} sm={6} sx={{ display: { xs: 'none', sm:'block' } }}>
         <SidePanel/>
       </Grid>
-      <Grid item xs={4}>
+      <Grid item md={4} sm={6} xs={12}>
         <ForgotPasswordForm/>  
       </Grid>
     </Grid>
@@ -30,8 +30,8 @@ const ForgotPasswordForm = () => {
     };
     return (
       <Paper elevation={0} sx={{bgcolor:'transparent',position:'relative',top:'50%',transform:'translateY(-50%)',maxWidth:'90%',m:'auto'}}>
-          <Button sx={{border:'1px solid rgb(150, 150, 150)',mb:2,p:2}}
-            onClick={() => history.goBack()}
+          <Button sx={{border:'1px solid rgb(150, 150, 150)',mb:2,p:1}}
+            onClick={() => history(-1)}
           >
             <ArrowBackIosNew  />
           </Button>

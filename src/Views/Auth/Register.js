@@ -7,10 +7,10 @@ import { FilledInput, Button, FormControl, Grid, InputLabel, Box, TextField, Men
 const Register = (props) => {
   return (
     <Grid container spacing={5} p={3}>
-      <Grid item xs={8}>
+      <Grid item md={8} sm={6} sx={{ display: { xs: 'none', sm:'block' } }}>
         <SidePanel/>
       </Grid>
-      <Grid item xs={4}>
+      <Grid item md={4} sm={6} xs={12}>
         <Heading
           title="Sign up"
           link="Already have an account?"
@@ -55,7 +55,7 @@ const RegisterForm = () => {
   
     const handleSubmit = (e) => {
       e.preventDefault();
-      window.location.pathname = "/confirmemail";
+      window.location.pathname = "/confirm-email";
     };
   
     const getPassword = (password) => {

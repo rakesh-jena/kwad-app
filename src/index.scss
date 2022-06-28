@@ -15,23 +15,10 @@ input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
     transition: background-color 5000s ease-in-out 0s;
 }
-.MuiFilledInput-root:focus {
-  border-color: rgba(234,76,137,0.4);
+.MuiFilledInput-root:focus,.MuiFilledInput-root:active,.MuiFilledInput-root:hover {
     background-color: #fff !important;
-    -webkit-box-shadow: 0 0 0 4px rgb(234 76 137 / 10%);
-    box-shadow: 0 0 0 4px rgb(234 76 137 / 10%);
-}
-.MuiFilledInput-root:active{
-  border-color: #e7e7e9;
-    background-color: #fff !important;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-}
-.MuiFilledInput-root:hover {
-  border-color: rgba(0,0,0,0.1);
-    background-color: #fff !important;
-    -webkit-box-shadow: 0 0 0 4px rgb(234 76 137 / 10%);
-    box-shadow: 0 0 0 4px rgb(234 76 137 / 10%);
+    box-shadow: 0 0 3px 1px #ace3ff, inset 0 0 2px 1px #146086;
+    border-radius: 10px;
 }
 .link--Button.MuiButton-root {
   color: $jellyBean;

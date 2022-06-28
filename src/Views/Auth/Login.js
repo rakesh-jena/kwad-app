@@ -57,10 +57,10 @@ const Login = () => {
   };
   return (
     <Grid container spacing={5} p={3}>
-      <Grid item xs={8}>
+      <Grid item md={8} sm={6} sx={{ display: { xs: 'none', sm:'block' } }}>
         <SidePanel/>
       </Grid>
-      <Grid item xs={4} >
+      <Grid item md={4} sm={6} xs={12}>
         <Heading
           title="Sign in"
           link="Create new account"

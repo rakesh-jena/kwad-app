@@ -1,5 +1,5 @@
 import React from "react";
-import { Paper, Box } from '@mui/material';
+import { Paper } from '@mui/material';
 import LogoWhite from "../../Images/Logo/logo_white.png";
 
 export default class SidePanel extends React.Component {
