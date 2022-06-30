@@ -15,11 +15,23 @@ input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
     transition: background-color 5000s ease-in-out 0s;
 }
+.MuiButtonBase-root:hover {
+  box-shadow: none !important;
+}
+.MuiFilledInput-root{
+  border-radius: 10px !important;
+  color: #919190 !important;
+  border: 1px solid transparent;
+}
 .MuiFilledInput-root.Mui-focused,
 .MuiFilledInput-root:hover  {
-    background-color: #fff !important;
-    box-shadow: 0 0 3px 1px #ace3ff, inset 0 0 2px 1px #146086;
-    border-radius: 10px;
+    background-color: #f9f9f9 !important;
+    box-shadow: 0 0 4px #acd1e7;
+    border-color: rgb(0 150 136 / 50%);
+}
+.MuiInputBase-input {
+  font-size: 1rem!important;
+  padding: 10px!important;
 }
 @keyframes slideUpFromBottom {
   0% {
@@ -31,6 +43,13 @@ input:-webkit-autofill:active {
 }
 .slideUp{
   animation: 1s ease-out 0s 1 slideUpFromBottom;
+}
+@keyframes fadeinout {
+  0% { opacity: 0 }
+  100% { opacity: 1 }
+}
+.fade {
+  animation: fadeinout 1s linear forwards;
 }
 .link--Button.MuiButton-root {
   color: $jellyBean;

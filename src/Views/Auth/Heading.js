@@ -27,13 +27,12 @@ const Heading = (props) => {
                 boxShadow: 'none',
                 paddingTop: '10px',
                 paddingBottom: '10px',
-                border: '1px solid #d1d7d7',
+                border: '1px solid #acd1e7',
                 borderRadius: '10px',
                 bgcolor:'white',
                 "&.MuiButtonBase-root:hover": {
-                  bgcolor: "white",
-                  boxShadow:'none',
-                  border: '1px solid blue',
+                  bgcolor: "#f9f9f9",
+                  boxShadow: "0 0 3px 1px #acd1e7",
                 }
                 }}
             >

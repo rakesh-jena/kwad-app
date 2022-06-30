@@ -10,7 +10,7 @@ const Register = (props) => {
       <Grid item md={8} sm={6} sx={{ display: { xs: 'none', sm:'block' } }}>
         <SidePanel/>
       </Grid>
-      <Grid item md={4} sm={6} xs={12} className="slideUp">
+      <Grid item md={4} sm={6} xs={12} className="fade">
         <Heading
           title="Sign up"
           link="Already have an account?"
@@ -43,7 +43,7 @@ const currencies = [
 ];
 
 const RegisterForm = () => {
-  const [userData, setUserData] = useState({ lname: "", email:"", fname: "", password: "", code: "", number: "" });
+  const [userData, setUserData] = useState({ lname: "", email:"", fname: "", password: "", code: "", contact: "" });
   const [errorMessage, setErrorMessage] = useState({ value: "" });
   const handleInputChange = (e) => {
     setUserData((prevState) => {
@@ -56,7 +56,32 @@ const RegisterForm = () => {
   
     const handleSubmit = (e) => {
       e.preventDefault();
-      window.location.pathname = "/confirm-email";
+
+      if (userData.fname === "") {
+        setErrorMessage((prevState) => ({
+          value: "First Name can’t be blank",
+          value: "test",
+        }));
+      } else if (userData.lname === "") {
+        setErrorMessage((prevState) => ({
+          value: "Last Name can’t be blank",
+        }));
+      } else if (userData.email === "") {
+        setErrorMessage((prevState) => ({
+          value: "Email can’t be blank",
+        }));
+      } else if (userData.password === "") {
+        setErrorMessage((prevState) => ({
+          value: "Password can’t be blank",
+        }));
+      } else if (userData.contact === "") {
+        setErrorMessage((prevState) => ({
+          value: "Contact can’t be blank",
+        }));
+      } else {
+        window.location.pathname = "/confirm-email";
+      }
+      
     };
   
     const getPassword = (password) => {
@@ -74,44 +99,44 @@ const RegisterForm = () => {
               <p className="messageBox--Text">{errorMessage.value}</p>
             </div>
           )}
-        <FormControl variant="filled" sx={{mb:1,width: '48%',pr:1}}>
-            <InputLabel sx={{lineHeight:'1'}} htmlFor="input-username">First Name</InputLabel>
-            <FilledInput  sx={{borderRadius:"10px"}}
+        <FormControl variant="filled" sx={{mb:2,width: 'calc(50% - 2px)',pr:"4px"}}>
+            <FilledInput
               size="small"
               disableUnderline
               id="input-fname"
               name="fname"
+              placeholder="First Name"
               onChange={(e) => handleInputChange(e)}
             />
           </FormControl>
-          <FormControl variant="filled" sx={{mb:1,width: '49%'}}>
-            <InputLabel sx={{lineHeight:'1'}} htmlFor="input-lname">Last Name</InputLabel>
-            <FilledInput  sx={{borderRadius:"10px"}}
+          <FormControl variant="filled" sx={{mb:2,width: 'calc(50% - 2px)'}}>
+            <FilledInput
               size="small"
               disableUnderline
               id="input-lname"
               name="lname"
+              placeholder="Last Name"
               onChange={(e) => handleInputChange(e)}
             />
           </FormControl>
-        <FormControl fullWidth variant="filled" sx={{mb:1}}>
-            <InputLabel sx={{lineHeight:'1'}} htmlFor="input-email">Email</InputLabel>
-            <FilledInput  sx={{borderRadius:"10px"}}
+        <FormControl fullWidth variant="filled" sx={{mb:2}}>
+            <FilledInput
               size="small"
               disableUnderline
               id="input-email"
               name="email"
+              placeholder="Email"
               onChange={(e) => handleInputChange(e)}
             />
           </FormControl>
           <CustomPasswordField getPasword={getPassword}/>
-        <TextField sx={{mt:1,mb:3,mr:1,width:'22%'}} size="small"
+        <TextField sx={{mt:2,mb:3,mr:'4px',width:'calc(25% - 2px)',borderRadius:"10px"}} size="small"
           id="filled-select-currency"
           select
-          label="Code"
           value={currency}
           onChange={handleChange}
           variant="filled"
+          name="code"
           InputProps={{ disableUnderline: true }}
         >
           {currencies.map((option) => (
@@ -121,13 +146,13 @@ const RegisterForm = () => {
           ))}
         </TextField>
         
-        <FormControl variant="filled" sx={{mt:1,mb:3,width:'75%'}}>
-            <InputLabel sx={{lineHeight:'1'}} htmlFor="input-contact">Contact</InputLabel>
-            <FilledInput  sx={{borderRadius:"10px"}}
+        <FormControl variant="filled" sx={{mt:2,mb:3,width:'calc(75% - 2px)'}}>
+            <FilledInput
               size="small"
               disableUnderline
               id="input-contact"
               name="contact"
+              placeholder="Contact"
               onChange={(e) => handleInputChange(e)}
             />
           </FormControl>
@@ -137,11 +162,6 @@ const RegisterForm = () => {
           variant="contained"
           color="primary"
           onClick={handleSubmit}
-          sx={{
-            "&.MuiButtonBase-root:hover": {
-              boxShadow:'none',
-            }
-          }}
         >
           Sign up
         </Button>

@@ -31,15 +31,15 @@ const Login = () => {
       userData.password === ""
     ) {
       setErrorMessage((prevState) => ({
-        value: "Enter username & password",
+        value: "Enter username/email & password to sign!!",
       }));
     } else if (userData.username === "") {
       setErrorMessage((prevState) => ({
-        value: "Empty username",
+        value: "Enter username/email to sign",
       }));
     } else if (userData.password === "") {
       setErrorMessage((prevState) => ({
-        value: "Empty password",
+        value: "We can’t let you sign in without your Password",
       }));
     } else if (
       userData.username === "admin" &&
@@ -71,7 +71,7 @@ const Login = () => {
       <Grid item md={8} sm={6} sx={{ display: { xs: 'none', sm:'block' } }}>
         <SidePanel/>
       </Grid>
-      <Grid item md={4} sm={6} xs={12} className="slideUp">
+      <Grid item md={4} sm={6} xs={12} className="fade">
         <Heading
           title="Sign in"
           link="Create new account"
@@ -84,13 +84,13 @@ const Login = () => {
               <p className="messageBox--Text">{errorMessage.value}</p>
             </div>
           )}
-          <FormControl fullWidth variant="filled" sx={{mb:1}}>
-            <InputLabel sx={{lineHeight:'1'}} htmlFor="input-username">Username</InputLabel>
-            <FilledInput  sx={{borderRadius:"10px"}}
+          <FormControl fullWidth variant="filled" sx={{mb:2}}>
+            <FilledInput autoComplete="off"
               size="small"
               disableUnderline
               id="input-username"
               name="username"
+              placeholder="Username/Email"
               onChange={(e) => handleInputChange(e)}
               error={userData.username === "" ? false : true}
             />
@@ -106,11 +106,6 @@ const Login = () => {
             onClick={handleSubmit}
             variant="contained"
             color="primary"
-            sx={{
-              "&.MuiButtonBase-root:hover": {
-                boxShadow:'none',
-              }
-            }}
           >
             Sign in
           </Button>

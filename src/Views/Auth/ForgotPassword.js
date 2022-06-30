@@ -10,7 +10,7 @@ const ForgotPassword = (props) => {
       <Grid item md={8} sm={6} sx={{ display: { xs: 'none', sm:'block' } }}>
         <SidePanel/>
       </Grid>
-      <Grid item md={4} sm={6} xs={12} className="slideUp">
+      <Grid item md={4} sm={6} xs={12} className="fade">
         <ForgotPasswordForm/>  
       </Grid>
     </Grid>
@@ -30,10 +30,10 @@ const ForgotPasswordForm = () => {
     };
     return (
       <Paper elevation={0} sx={{bgcolor:'transparent',position:'relative',top:'50%',transform:'translateY(-50%)',maxWidth:'90%',m:'auto'}}>
-          <Button sx={{border:'1px solid rgb(150, 150, 150)',mb:2,p:1}}
+          <Button sx={{border:'1px solid rgb(150, 150, 150)',mb:2,p:'15px',borderRadius:'10px',minWidth:'24px'}}
             onClick={() => history(-1)}
           >
-            <ArrowBackIosNew  />
+            <ArrowBackIosNew  sx={{fontSize:"0.8rem",color:'#070c10'}}/>
           </Button>
           <Box>
             <span className="pageTitle">Forgot password?</span>
@@ -53,20 +53,16 @@ const ForgotPasswordForm = () => {
             </p>
           </div>
           <FormControl fullWidth variant="filled" sx={{mb:1}}>
-            <InputLabel sx={{lineHeight:'1'}} htmlFor="input-email">Email</InputLabel>
-            <FilledInput  sx={{borderRadius:"10px"}}
+            <FilledInput 
               size="small"
               disableUnderline
               id="input-email"
               name="email"
+              placeholder="Email"
               onChange={(e) => handleInputChange(e)}
             />
           </FormControl>
-          <Button className="form--Button" sx={{
-            "&.MuiButtonBase-root:hover": {
-              boxShadow:'none',
-            }
-          }} variant="contained" color="primary">
+          <Button className="form--Button" variant="contained" color="primary">
             Send Rest Instructions
           </Button>
         </Paper>
