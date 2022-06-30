@@ -26,9 +26,20 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     //if username or password field is empty, return error message
-    if (userData.username === "" || userData.password === "") {
+    if (
+      userData.username === "" &&
+      userData.password === ""
+    ) {
       setErrorMessage((prevState) => ({
-        value: "Empty username/password field",
+        value: "Enter username & password",
+      }));
+    } else if (userData.username === "") {
+      setErrorMessage((prevState) => ({
+        value: "Empty username",
+      }));
+    } else if (userData.password === "") {
+      setErrorMessage((prevState) => ({
+        value: "Empty password",
       }));
     } else if (
       userData.username === "admin" &&
@@ -60,7 +71,7 @@ const Login = () => {
       <Grid item md={8} sm={6} sx={{ display: { xs: 'none', sm:'block' } }}>
         <SidePanel/>
       </Grid>
-      <Grid item md={4} sm={6} xs={12}>
+      <Grid item md={4} sm={6} xs={12} className="slideUp">
         <Heading
           title="Sign in"
           link="Create new account"
@@ -81,6 +92,7 @@ const Login = () => {
               id="input-username"
               name="username"
               onChange={(e) => handleInputChange(e)}
+              error={userData.username === "" ? false : true}
             />
           </FormControl>
           <CustomPasswordField getPasword={getPassword} />          

@@ -15,10 +15,22 @@ input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
     transition: background-color 5000s ease-in-out 0s;
 }
-.MuiFilledInput-root:focus,.MuiFilledInput-root:active,.MuiFilledInput-root:hover {
+.MuiFilledInput-root.Mui-focused,
+.MuiFilledInput-root:hover  {
     background-color: #fff !important;
     box-shadow: 0 0 3px 1px #ace3ff, inset 0 0 2px 1px #146086;
     border-radius: 10px;
+}
+@keyframes slideUpFromBottom {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.slideUp{
+  animation: 1s ease-out 0s 1 slideUpFromBottom;
 }
 .link--Button.MuiButton-root {
   color: $jellyBean;

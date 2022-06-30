@@ -10,7 +10,7 @@ const Register = (props) => {
       <Grid item md={8} sm={6} sx={{ display: { xs: 'none', sm:'block' } }}>
         <SidePanel/>
       </Grid>
-      <Grid item md={4} sm={6} xs={12}>
+      <Grid item md={4} sm={6} xs={12} className="slideUp">
         <Heading
           title="Sign up"
           link="Already have an account?"
@@ -44,6 +44,7 @@ const currencies = [
 
 const RegisterForm = () => {
   const [userData, setUserData] = useState({ lname: "", email:"", fname: "", password: "", code: "", number: "" });
+  const [errorMessage, setErrorMessage] = useState({ value: "" });
   const handleInputChange = (e) => {
     setUserData((prevState) => {
       return {
@@ -68,6 +69,11 @@ const RegisterForm = () => {
     };
     return (
       <Box>
+        {errorMessage.value && (
+            <div className="messageBox">
+              <p className="messageBox--Text">{errorMessage.value}</p>
+            </div>
+          )}
         <FormControl variant="filled" sx={{mb:1,width: '48%',pr:1}}>
             <InputLabel sx={{lineHeight:'1'}} htmlFor="input-username">First Name</InputLabel>
             <FilledInput  sx={{borderRadius:"10px"}}

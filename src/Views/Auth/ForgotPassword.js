@@ -10,7 +10,7 @@ const ForgotPassword = (props) => {
       <Grid item md={8} sm={6} sx={{ display: { xs: 'none', sm:'block' } }}>
         <SidePanel/>
       </Grid>
-      <Grid item md={4} sm={6} xs={12}>
+      <Grid item md={4} sm={6} xs={12} className="slideUp">
         <ForgotPasswordForm/>  
       </Grid>
     </Grid>
