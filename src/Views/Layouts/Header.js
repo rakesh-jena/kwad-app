@@ -1,76 +1,95 @@
-import React, { useState } from "react";
-import "./Header.scss";
-import { useLocation } from 'react-router-dom';
-import { InputBase } from "@mui/material";
-import { Search } from "@mui/icons-material";
-import LogoB from "../../Images/Logo/logo_blue.png";
+import * as React from 'react';
+import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
+import MuiAppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import SearchIcon from '@mui/icons-material/Search';
+import InputBase from '@mui/material/InputBase';
+import Container from '@mui/material/Container';
 import filterIcon from "../../Images/filter.png";
-import Sidebar from "./Sidebar";
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
 
+const drawerWidth = 180;
 
-const Header = (props) => {
-  console.log(props.displayIcons);
-  const location = useLocation();
-  const [input, setInput] = useState("");
-  console.log(input);
+const AppBar = styled(MuiAppBar, {
+  shouldForwardProp: (prop) => prop !== 'open',
+})(({ theme, open }) => ({
+  boxShadow: 'none',
+  backgroundColor : 'transparent',
+  transition: theme.transitions.create(['margin', 'width'], {
+    easing: theme.transitions.easing.sharp,
+    duration: theme.transitions.duration.leavingScreen,
+  }),
+  ...(open && {
+    width: `calc(100% - ${drawerWidth}px)`,
+    marginLeft: `${drawerWidth}px`,
+    transition: theme.transitions.create(['margin', 'width'], {
+      easing: theme.transitions.easing.easeOut,
+      duration: theme.transitions.duration.enteringScreen,
+    }),
+  }),
+}));
 
+const Search = styled('div')(({ theme }) => ({
+  position: 'relative',
+  borderRadius: '10px',
+  backgroundColor: 'transparent',
+  '&:hover': {
+    
+  },
+  width: '100%',
+  boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px',
+  [theme.breakpoints.up('sm')]: {
+  },
+}));
+
+const SearchIconWrapper = styled('div')(({ theme }) => ({
+  padding: theme.spacing(0, 2),
+  height: '100%',
+  position: 'absolute',
+  pointerEvents: 'none',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+}));
+
+const StyledInputBase = styled(InputBase)(({ theme }) => ({
+  color: '#919191',
+  '& .MuiInputBase-input': {
+    padding: theme.spacing(1, 1, 1, 0),
+    // vertical padding + font size from searchIcon
+    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
+    transition: theme.transitions.create('width'),
+    width: '100%',
+    [theme.breakpoints.up('md')]: {
+    },
+  },
+}));
+
+export default function Header(props) {
+  const {open} = props;
   return (
-    <div className="dashboardMain--Header">
-      {props.displayIcons ? (
-        <div className="dashboardMain--Header--LogoDiv">
-          <img
-            src={LogoB}
-            alt="kwad-logo"
-            className="dashboardMain--Header--LogoDiv--Logo"
+    <AppBar position="fixed" open={open}>
+      <Container>
+      <Toolbar>        
+        <Search>
+          <SearchIconWrapper>
+            <SearchIcon sx={{color:'#023246'}}/>
+          </SearchIconWrapper>
+          <StyledInputBase
+            placeholder="Search…"
+            inputProps={{ 'aria-label': 'search' }}
           />
-        </div>
-      ) : (
-        <></>
-      )}
-      {location.pathname === "/dashboard" ? (
-        <div
-          className={
-            props.displayIcons
-              ? "dashboardMain--Header--Search--NavClose"
-              : "dashboardMain--Header--Search--NavOpen"
-          }
-        >
-          <div className="searchIcon">
-            <Search className="dashboardMain--Header--SearchIcon" />
-          </div>
-          <InputBase
-            placeholder="Search"
-            classes={{
-              root: "inputRoot",
-              input: "inputInput",
-            }}
-            inputProps={{ "aria-label": "search" }}
-            onChange={(e) => {
-              setInput(e.target.value);
-            }}
-            onClick={() => {
-              console.log("Hello");
-            }}
-          />
-        </div>
-      ) : (
-        <></>
-      )}
-
-      {props.displayIcons ? <Sidebar displayIcons={true} /> : <></>}
-      {props.displayIcons || location.pathname === "/dashboard" ? (
-        <div className="dashboardMain--Header--FilterDiv">
+        </Search>
+        <div className="appbar-filter-div">
           <img
             src={filterIcon}
             alt="filter--icon"
-            className="dashboardMain--Header--FilterDiv--Icon"
+            className="appbar-filter-Icon"
           />
         </div>
-      ) : (
-        <></>
-      )}
-    </div>
+      </Toolbar>
+      </Container>
+    </AppBar>
   );
 };
-
-export default Header;

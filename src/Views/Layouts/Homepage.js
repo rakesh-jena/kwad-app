@@ -1,54 +1,17 @@
 import React, { useState } from "react";
-import "./DashboardLayout.scss";
+//import "./DashboardLayout.scss";
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
-import Drawer from "@mui/material/Drawer";
 import CssBaseline from "@mui/material/CssBaseline";
-import Divider from "@mui/material/Divider";
-import IconButton from "@mui/material/IconButton";
-import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import MuiAppBar from "@mui/material/AppBar";
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
 import { useLocation } from "react-router-dom";
-import Suggestions from "./Suggestions";
 import Header from "./Header";
-
 import Sidebar from "./Sidebar";
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
-const drawerWidth = 250;
-
-const AppBar = styled(MuiAppBar, {
-  shouldForwardProp: (prop) => prop !== "open",
-})(({ theme, open }) => ({
-  transition: theme.transitions.create(["margin", "width"], {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.leavingScreen,
-  }),
-  ...(open && {
-    width: `calc(100% - ${drawerWidth + 56 * 2}px)`,
-    marginLeft: `${theme.spacing(7)}`,
-    marginRight: `${theme.spacing(7)}`,
-    marginTop: `${theme.spacing(3)}`,
-    paddingTop: `${theme.spacing(2)}`,
-    paddingBottom: `${theme.spacing(2)}`,
-    backgroundColor: "#f6f6f6",
-    boxShadow: "none",
-    transition: theme.transitions.create(["margin", "width"], {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-  }),
-  ...(open === false && {
-    width: `calc(100% -  (${theme.spacing(7)} + ${theme.spacing(7)}))`,
-    marginLeft: `${theme.spacing(7)}`,
-    marginRight: `${theme.spacing(7)}`,
-    marginTop: `${theme.spacing(3)}`,
-    paddingTop: `${theme.spacing(2)}`,
-    paddingBottom: `${theme.spacing(2)}`,
-    backgroundColor: "#f6f6f6",
-    boxShadow: "none",
-  }),
-}));
+const drawerWidth = 180;
 
 const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
   ({ theme, open }) => ({
@@ -73,72 +36,62 @@ const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
   })
 );
 
-export const OpenStatus = React.createContext();
+const DrawerHeader = styled('div')(({ theme }) => ({
+  display: 'flex',
+  alignItems: 'center',
+  padding: theme.spacing(0, 1),
+  // necessary for content to be below app bar
+  ...theme.mixins.toolbar,
+  justifyContent: 'flex-end',
+}));
 
-const MainLayout = (props) => {
-  const { children } = props;
-  const location = useLocation();
-  const [open, setOpen] = useState(true);
-  console.log("from dashboard layout = " + open);
-  const handleDrawerHandle = () => {
-    setOpen(!open);
+export default function Homepage() {
+  const [open, setOpen] = React.useState(true);
+
+  const handleDrawerOpen = () => {
+    setOpen(true);
   };
-  console.log(open);
-  return (
-    <Box sx={{ display: "flex" }} className="mainLayout">
-      <CssBaseline />
-      {location.pathname === "/dashboard" || open === false ? (
-        <AppBar position="fixed" open={open}>
-          {open === false ? (
-            <div>
-              <Header displayIcons={true} />
-            </div>
-          ) : (
-            <div>
-              <Header displayIcons={false} />
-            </div>
-          )}
-          {location.pathname === "/dashboard" ? (
-            <div>
-              <Suggestions />
-            </div>
-          ) : (
-            <></>
-          )}
-        </AppBar>
-      ) : (
-        <></>
-      )}
-      <Drawer
-        sx={{
-          width: drawerWidth,
-          flexShrink: 0,
-          "& .MuiDrawer-paper": {
-            width: drawerWidth,
-            boxSizing: "border-box",
-            backgroundColor: "#023246",
-            borderRight: "0ch",
-          },
-        }}
-        variant="persistent"
-        anchor="left"
-        open={open}
-      >
-        <Divider />
-        <Sidebar />
-      </Drawer>
 
-      <IconButton
-        onClick={handleDrawerHandle}
-        className={open ? "mainLayout--Open" : "mainLayout--Close"}
-      >
-        {open ? <ChevronLeftIcon /> : <ChevronRightIcon />}
-      </IconButton>
-      <OpenStatus.Provider value={open}>
-        <Main open={open}>{children}</Main>
-      </OpenStatus.Provider>
+  const handleDrawerClose = () => {
+    setOpen(false);
+  };
+  return (
+    <Box sx={{ display: 'flex' }}>
+      <CssBaseline />
+      <Header open={open}/>
+      <Sidebar open={open} drawerWidth={drawerWidth}/>
+      <Main open={open}>
+        <Container>
+        <DrawerHeader />
+        <Typography paragraph>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus non
+          enim praesent elementum facilisis leo vel. Risus at ultrices mi tempus
+          imperdiet. Semper risus in hendrerit gravida rutrum quisque non tellus.
+          Convallis convallis tellus id interdum velit laoreet id donec ultrices.
+          Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
+          adipiscing bibendum est ultricies integer quis. Cursus euismod quis viverra
+          nibh cras. Metus vulputate eu scelerisque felis imperdiet proin fermentum
+          leo. Mauris commodo quis imperdiet massa tincidunt. Cras tincidunt lobortis
+          feugiat vivamus at augue. At augue eget arcu dictum varius duis at
+          consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem donec massa
+          sapien faucibus et molestie ac.
+        </Typography>
+        <Typography paragraph>
+          Consequat mauris nunc congue nisi vitae suscipit. Fringilla est ullamcorper
+          eget nulla facilisi etiam dignissim diam. Pulvinar elementum integer enim
+          neque volutpat ac tincidunt. Ornare suspendisse sed nisi lacus sed viverra
+          tellus. Purus sit amet volutpat consequat mauris. Elementum eu facilisis
+          sed odio morbi. Euismod lacinia at quis risus sed vulputate odio. Morbi
+          tincidunt ornare massa eget egestas purus viverra accumsan in. In hendrerit
+          gravida rutrum quisque non tellus orci ac. Pellentesque nec nam aliquam sem
+          et tortor. Habitant morbi tristique senectus et. Adipiscing elit duis
+          tristique sollicitudin nibh sit. Ornare aenean euismod elementum nisi quis
+          eleifend. Commodo viverra maecenas accumsan lacus vel facilisis. Nulla
+          posuere sollicitudin aliquam ultrices sagittis orci a.
+        </Typography>
+        </Container>
+      </Main>
     </Box>
   );
 };
-
-export default MainLayout;
