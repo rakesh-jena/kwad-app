@@ -25,6 +25,7 @@ const CustomPasswordField = (props) => {
       <FormControl fullWidth variant="filled">
         <FilledInput sx={{borderRadius:'10px'}} autoComplete="off" placeholder="Password"
           size="small"
+          name="password"
           disableUnderline
           id="filled-adornment-password"
           type={values.showPassword ? 'text' : 'password'}

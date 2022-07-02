@@ -6,7 +6,7 @@ import { ArrowBackIosNew } from "@mui/icons-material";
 
 const ForgotPassword = (props) => {
   return (
-    <Grid container spacing={5} p={3}>
+    <Grid container spacing={5} p={3} className="auth-wrapper">
       <Grid item md={8} sm={6} sx={{ display: { xs: 'none', sm:'block' } }}>
         <SidePanel/>
       </Grid>
@@ -30,10 +30,14 @@ const ForgotPasswordForm = () => {
     };
     return (
       <Paper elevation={0} sx={{bgcolor:'transparent',position:'relative',top:'50%',transform:'translateY(-50%)',maxWidth:'90%',m:'auto'}}>
-          <Button sx={{border:'1px solid rgb(150, 150, 150)',mb:2,p:'15px',borderRadius:'10px',minWidth:'24px'}}
+          <Button sx={{border:'1px solid #d3d4ce',mb:2,p:'15px',borderRadius:'10px',minWidth:'24px',
+              "&.MuiButtonBase-root:hover": {
+                borderColor:'#a3d1e7',".MuiSvgIcon-root":{color:'#a3d1e7',}
+              }
+            }}
             onClick={() => history(-1)}
           >
-            <ArrowBackIosNew  sx={{fontSize:"0.8rem",color:'#070c10'}}/>
+            <ArrowBackIosNew  sx={{fontSize:"0.8rem",color:'#d3d4ce'}}/>
           </Button>
           <Box>
             <span className="pageTitle">Forgot password?</span>
@@ -52,7 +56,7 @@ const ForgotPasswordForm = () => {
               reset your password will be sent to you. Please check your email.
             </p>
           </div>
-          <FormControl fullWidth variant="filled" sx={{mb:1}}>
+          <FormControl fullWidth variant="filled" sx={{mb:3}}>
             <FilledInput 
               size="small"
               disableUnderline

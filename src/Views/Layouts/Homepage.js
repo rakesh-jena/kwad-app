@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-//import "./DashboardLayout.scss";
+import "./Homepage.scss";
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -8,30 +8,25 @@ import Container from '@mui/material/Container';
 import { useLocation } from "react-router-dom";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import ArrowRightRoundedIcon from '@mui/icons-material/ArrowRightRounded';
+import Button from '@mui/material/Button';
 
 const drawerWidth = 180;
 
 const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
   ({ theme, open }) => ({
     flexGrow: 1,
-    paddingLeft: theme.spacing(7),
-    paddingTop: theme.spacing(5),
     backgroundColor: "#f6f6f6",
     transition: theme.transitions.create("margin", {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
-    height: "100%",
     marginLeft: `-${drawerWidth}px`,
     ...(open && {
       transition: theme.transitions.create("margin", {
         easing: theme.transitions.easing.easeOut,
         duration: theme.transitions.duration.enteringScreen,
       }),
-      borderRadius: "14px 0 0 14px",
-      marginLeft: 0,
     }),
   })
 );
@@ -59,7 +54,8 @@ export default function Homepage() {
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
       <Header open={open}/>
-      <Sidebar open={open} drawerWidth={drawerWidth}/>
+      <Sidebar open={open} drawerWidth={drawerWidth} handleDrawerClose={handleDrawerClose}/>
+
       <Main open={open}>
         <Container>
         <DrawerHeader />
@@ -91,6 +87,9 @@ export default function Homepage() {
           posuere sollicitudin aliquam ultrices sagittis orci a.
         </Typography>
         </Container>
+        <Button className="sidebar-toggle-btn" onClick={handleDrawerOpen}>
+        <ArrowRightRoundedIcon/>
+      </Button>
       </Main>
     </Box>
   );

@@ -31,11 +31,11 @@ const Login = () => {
       userData.password === ""
     ) {
       setErrorMessage((prevState) => ({
-        value: "Enter username/email & password to sign!!",
+        value: "Enter username/email & password to Sign In",
       }));
     } else if (userData.username === "") {
       setErrorMessage((prevState) => ({
-        value: "Enter username/email to sign",
+        value: "Enter username/email to Sign In",
       }));
     } else if (userData.password === "") {
       setErrorMessage((prevState) => ({
@@ -67,7 +67,7 @@ const Login = () => {
     });
   };
   return (
-    <Grid container spacing={5} p={3}>
+    <Grid container spacing={5} p={3} className="auth-wrapper">
       <Grid item md={8} sm={6} sx={{ display: { xs: 'none', sm:'block' } }}>
         <SidePanel/>
       </Grid>
@@ -84,7 +84,7 @@ const Login = () => {
               <p className="messageBox--Text">{errorMessage.value}</p>
             </div>
           )}
-          <FormControl fullWidth variant="filled" sx={{mb:2}}>
+          <FormControl fullWidth variant="filled" sx={{mb:'10px'}}>
             <FilledInput autoComplete="off"
               size="small"
               disableUnderline
@@ -98,7 +98,12 @@ const Login = () => {
           <CustomPasswordField getPasword={getPassword} />          
           
             <Link to="/forgot-password" className="link">
-              <Button sx={{mt:2,mb:2,textTransform:"inherit",fontWeight:'400',fontSize:'16px',position:'relative',top:'50%'}}>Forgot password</Button>
+              <Button sx={{mt:2,mb:2,textTransform:"inherit",fontWeight:'500',
+              fontSize:'16px'}}
+              className="link--Button"
+              color="primary">
+                Forgot password
+              </Button>
             </Link>
           
           <Button

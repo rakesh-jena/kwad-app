@@ -3,3 +3,48 @@
 .sidebar-logo-img {
   width: 100px;
 }
+.MuiDrawer-root {
+  .MuiList-root {
+    top: 50%;
+    transform: translateY(calc(-50% - 64px));
+    .MuiListItem-root{
+      margin: auto;
+      padding: 10px;
+      .MuiListItemButton-root {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        .MuiListItemIcon-root {
+          color: #fff;
+          display: block;
+          .MuiSvgIcon-root {
+            font-size: 2.4rem;
+            margin: auto;
+            display: flex;
+          }
+        };
+        .MuiListItemAvatar-root {
+          .MuiAvatar-root {
+            margin: auto;
+            width: 64px;
+            height: 64px;
+          }
+        }
+      }    
+    }
+  }
+  .sidebar-toggle-btn {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    bottom: 0;
+    right: 0;
+    .MuiSvgIcon-root {
+      font-size: 5rem;
+      fill: #f6f6f6;
+    }
+  }
+}
+

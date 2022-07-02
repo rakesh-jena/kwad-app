@@ -1,7 +1,8 @@
 import React from "react";
 import LogoWhite from "../../Images/Logo/logo_white.png";
+import AvatarSrc from "../../Images/userPic.png";
 import { Link, useLocation } from "react-router-dom";
-import { Drawer,ListItem,ListItemButton,ListItemIcon,ListItemText,List, Button } from '@mui/material';
+import { Drawer,ListItem,ListItemButton,ListItemIcon,ListItemText,List, Button,ListItemAvatar ,Avatar } from '@mui/material';
 import { styled, useTheme } from '@mui/material/styles';
 import MarkEmailUnreadOutlinedIcon from "@mui/icons-material/MarkEmailUnreadOutlined";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
@@ -13,8 +14,8 @@ import AccountCircleRoundedIcon from "@mui/icons-material/AccountCircleRounded";
 import MarkEmailUnreadRoundedIcon from "@mui/icons-material/MarkEmailUnreadRounded";
 import NotificationsRoundedIcon from "@mui/icons-material/NotificationsRounded";
 import SettingsRoundedIcon from "@mui/icons-material/SettingsRounded";
-import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import ArrowLeftRoundedIcon from '@mui/icons-material/ArrowLeftRounded';
+import ArrowRightRoundedIcon from '@mui/icons-material/ArrowRightRounded';
 import './Sidebar.scss';
 
 const DrawerHeader = styled('div')(({ theme }) => ({
@@ -28,8 +29,8 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 
 export default function Sidebar(props) {
   const theme = useTheme();
-  const {open,  drawerWidth} = props;
-
+  const {open,  drawerWidth, handleDrawerClose} = props;
+  
   return (
     <Drawer className="sidebar"
       sx={{
@@ -50,15 +51,19 @@ export default function Sidebar(props) {
         <img src={LogoWhite} alt="logo" className="sidebar-logo-img"/>
       </DrawerHeader>
       <List>        
-        <ListItem >
+        <ListItem alignItems="center" disableGutters>
           <ListItemButton>
-            <ListItemIcon>
-              <AccountCircleRoundedIcon/>
-            </ListItemIcon>
-            <ListItemText />
+          <ListItemAvatar>
+                <Avatar
+                  alt={`Avatar`}
+                  src={AvatarSrc}
+                />
+              
+              <ListItemText primary="John Doe"/>
+              </ListItemAvatar>
           </ListItemButton>
         </ListItem>
-        <ListItem >
+        <ListItem alignItems="center">
           <ListItemButton>
             <ListItemIcon>
               <DashboardRoundedIcon/>
@@ -88,8 +93,8 @@ export default function Sidebar(props) {
         </ListItem>
       </List>
       
-      <Button className="sidebar-toggle-btn">
-        <ChevronLeftIcon/>
+      <Button className="sidebar-toggle-btn" onClick={handleDrawerClose}>
+        <ArrowLeftRoundedIcon/>
       </Button>
       
     </Drawer>

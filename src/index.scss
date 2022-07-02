@@ -3,8 +3,8 @@
 @import "./Style/custom/formTextField";
 
 body {
-  font-family: DM Sans Regular;
-  background-color: rgb(249 249 249);
+  font-family: DM Sans Regular !important;
+  background-color: #f9f9f9;
 }
 html, body {
   height: 100%;
@@ -15,6 +15,26 @@ input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
     transition: background-color 5000s ease-in-out 0s;
 }
+/* width */
+::-webkit-scrollbar {
+  width: 6px;
+  border-radius: 10px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f9f9f9; 
+  border-radius: 10px;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $blueWhale;
+  border-radius: 10px; 
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  //background: #555; 
+}
+
 .MuiButtonBase-root:hover {
   box-shadow: none !important;
 }
@@ -23,13 +43,16 @@ input:-webkit-autofill:active {
   color: #919190 !important;
   border: 1px solid transparent;
 }
-.MuiFilledInput-root.Mui-focused,
+.MuiFilledInput-root.Mui-focused {
+  background-color: #f9f9f9 !important;
+    box-shadow: 0 0 4px #acd1e7;
+    border-color: rgb(0 150 136 / 50%) !important;
+}
 .MuiFilledInput-root:hover  {
     background-color: #f9f9f9 !important;
     box-shadow: 0 0 4px #acd1e7;
-    border-color: rgb(0 150 136 / 50%);
 }
-.MuiInputBase-input {
+.auth-wrapper .MuiInputBase-input {
   font-size: 1rem!important;
   padding: 10px!important;
 }
