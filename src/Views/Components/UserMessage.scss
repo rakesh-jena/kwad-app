@@ -1,0 +1,39 @@
+@import "../../../styles/color";
+
+.userMessage {
+  width: 90%;
+  margin-bottom: 15px;
+  background-color: #f6f6f6;
+  cursor: pointer;
+  .userMessage--Box {
+    width: 100%;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+  .userMessage--UserName {
+    color: $blueWhale;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: "DM Sans";
+  }
+
+  .userMessage--LastMessage {
+    color: rgb(145, 145, 144);
+    font-size: 16px;
+    font-family: "DM Sans";
+  }
+}
+
+.userMessage--CardContent--MessageTime {
+  .userMessage--CardContent--MessageTime--Time {
+    float: right;
+    color: rgb(145, 145, 144);
+    font-size: 16px;
+    font-family: "DM Sans";
+  }
+}
+
+.userMessage:visited {
+  background-color: red;
+}

@@ -6,8 +6,9 @@ import SidePanel from "./SidePanel";
 import Heading from "./Heading";
 
 const Login = () => {
+  const [formSubmit, submitForm] = useState(true);
   const [userData, setUserData] = useState({ username: "", password: "" });
-  const [errorMessage, setErrorMessage] = useState({ value: "" });
+  const [errorMessage, setErrorMessage] = useState({ for: "", value:"" });
 
   // console.log("auth", localStorage.getItem("isAuthenticated"));
 
@@ -15,6 +16,20 @@ const Login = () => {
   console.log(userData.password);
 
   const handleInputChange = (e) => {
+    if(!formSubmit){
+      if(errorMessage.for === e.target.name && e.target.value != null){
+        setErrorMessage((prevState) => ({
+          value: "",
+          for: ""
+        }));
+      }
+      if(errorMessage.for === "both" || errorMessage.for === "cred_err"){
+        setErrorMessage((prevState) => ({
+          value: "",
+          for: ""
+        }));
+      }
+    }
     setUserData((prevState) => {
       return {
         ...prevState,
@@ -25,6 +40,7 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    submitForm(false);
     //if username or password field is empty, return error message
     if (
       userData.username === "" &&
@@ -32,14 +48,17 @@ const Login = () => {
     ) {
       setErrorMessage((prevState) => ({
         value: "Enter username/email & password to Sign In",
+        for: "both"
       }));
     } else if (userData.username === "") {
       setErrorMessage((prevState) => ({
         value: "Enter username/email to Sign In",
+        for: "username"
       }));
     } else if (userData.password === "") {
       setErrorMessage((prevState) => ({
         value: "We can’t let you sign in without your Password",
+        for: "password"
       }));
     } else if (
       userData.username === "admin" &&
@@ -51,6 +70,7 @@ const Login = () => {
     } else {
       //If credentials entered is invalid
       setErrorMessage((prevState) => ({
+        for:"cred_err",
         value:
           "We couldn’t find an account matching the username and password you entered. Please check your username and password and try again.",
       }));
@@ -58,7 +78,14 @@ const Login = () => {
   };
 
   const getPassword = (password) => {
-    console.log(password);
+    if(!formSubmit){
+      if(password != null && errorMessage.for === "password"){
+        setErrorMessage((prevState) => ({
+          value: "",
+          for: ""
+        }));
+      }
+    }   
     setUserData((prevState) => {
       return {
         ...prevState,
