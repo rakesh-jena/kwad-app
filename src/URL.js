@@ -7,6 +7,10 @@ import Register from "./Views/Auth/Register";
 import PageNotFound from "./404";
 import ConfirmEmail from "./Views/Auth/ConfirmEmail";
 import Dashboard from "./Views/Pages/Dashboard";
+import Profile from "./Views/Pages/Profile";
+import Settings from "./Views/Pages/Settings";
+import Message from "./Views/Pages/Message";
+import Notification from "./Views/Pages/Notification";
 
 const URL = (props) => {
   return (
@@ -19,8 +23,10 @@ const URL = (props) => {
         <Route path="/confirm-email" element={<ConfirmEmail />} />
         <Route path="*" element={<PageNotFound />} />
         <Route path="/dashboard" element={<Dashboard/>}/>
-          
-        
+        <Route path="/profile" element={<Profile/>}/>
+        <Route path="/settings" element={<Settings/>}/>  
+        <Route path="/message" element={<Message/>}/>
+        <Route path="/notifications" element={<Notification/>}/>
       </Routes>
     </BrowserRouter>
   );

@@ -53,41 +53,50 @@ export default function Sidebar(props) {
       <List>        
         <ListItem alignItems="center" disableGutters>
           <ListItemButton>
-          <ListItemAvatar>
-                <Avatar
-                  alt={`Avatar`}
-                  src={AvatarSrc}
-                />
-              
+            <ListItemAvatar>
+              <Link to="/dashboard">
+              <Avatar
+                alt={`Avatar`}
+                src={AvatarSrc}
+              />        
+              </Link>      
               <ListItemText primary="John Doe"/>
-              </ListItemAvatar>
+            </ListItemAvatar>
           </ListItemButton>
         </ListItem>
         <ListItem alignItems="center">
           <ListItemButton>
             <ListItemIcon>
+            <Link to="/profile">
               <DashboardRoundedIcon/>
+              </Link>
             </ListItemIcon>
           </ListItemButton>
         </ListItem>
         <ListItem >
           <ListItemButton>
             <ListItemIcon>
+            <Link to="/message">
               <MarkEmailUnreadRoundedIcon/>
+              </Link>
             </ListItemIcon>
           </ListItemButton>
         </ListItem>
         <ListItem >
           <ListItemButton>
             <ListItemIcon>
+            <Link to="/notifications">
               <NotificationsRoundedIcon/>
+              </Link>
             </ListItemIcon>
           </ListItemButton>
         </ListItem>
         <ListItem >
           <ListItemButton>
             <ListItemIcon>
+            <Link to="/settings">
               <SettingsRoundedIcon/>
+              </Link>
             </ListItemIcon>
           </ListItemButton>
         </ListItem>

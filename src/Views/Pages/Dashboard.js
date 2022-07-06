@@ -5,33 +5,21 @@ import pinImg from "../../Images/photo1.jfif"
 import { Grid } from "@mui/material";
 
 export default function Dashboard () {
+    const loop = index => {
+        let content = [];
+        for (let i = 0; i < index; i++) {
+          content.push(
+            <Grid key={i} item md={3} sm={4}  className="dashboardContent">          
+                <Pin url={pinImg} rating={2} title="Demo"/>          
+            </Grid>
+            );
+        }
+        return content;
+      };
     return (
-        <Page>
+        <Page scroll={true} searchBar={true}>
             <Grid container  spacing={1} p={1} className="dashboard">
-                <Grid item md={3} sm={4}  className="dashboardContent">          
-                    <Pin url={pinImg}/>          
-                </Grid>
-                <Grid item md={3} sm={4}  className="dashboardContent">          
-                    <Pin url={pinImg}/>          
-                </Grid>
-                <Grid item md={3} sm={4}  className="dashboardContent">          
-                    <Pin url={pinImg}/>          
-                </Grid>
-                <Grid item md={3} sm={4}  className="dashboardContent">          
-                    <Pin url={pinImg}/>          
-                </Grid>
-                <Grid item md={3} sm={4}  className="dashboardContent">          
-                    <Pin url={pinImg} rating={2} title="Demo"/>          
-                </Grid>
-                <Grid item md={3} sm={4}  className="dashboardContent">          
-                    <Pin url={pinImg}/>          
-                </Grid>
-                <Grid item md={3} sm={4}  className="dashboardContent">          
-                    <Pin url={pinImg}/>          
-                </Grid>
-                <Grid item md={3} sm={4}  className="dashboardContent">          
-                    <Pin url={pinImg}/>          
-                </Grid>
+                {loop(20)}
             </Grid>
         </Page>
       );

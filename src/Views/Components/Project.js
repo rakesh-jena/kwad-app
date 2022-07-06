@@ -1,49 +1,44 @@
 import * as React from "react";
 import "./Project.scss";
-import Button from "@mui/material/Button";
+import BasicRating from "./BasicRating";
+import { Box, Card, CardHeader,CardMedia,CardContent,CardActions,IconButton } from "@mui/material";
 import IosShareIcon from "@mui/icons-material/IosShare";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import ShareIcon from "@mui/icons-material/Share";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
-const Project = () => {
+const Project = (props) => {
   return (
-    <div className="project">
-      <img
-        src="https://images.unsplash.com/photo-1591485423007-765bde4139ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80"
-        alt=""
+    <Box className="project-wrapper">
+    <Card sx={{ maxWidth: 345,borderRadius:'10px',maxHeight:150 }}>
+      <CardHeader
+        action={<div>
+        <IconButton aria-label="add to favorites">
+          <FavoriteIcon />
+        </IconButton>
+        <IconButton aria-label="share">
+          <ShareIcon />
+        </IconButton></div>
+        }
       />
-      <div className="project--Desc">
-        <div className="project--Desc--Buttons">
-          <Button
-            size="small"
-            variant="contained"
-            startIcon={<IosShareIcon />}
-            className="project--Card--Button--Share"
-          />
-          <Button
-            variant="contained"
-            size="small"
-            className="project--Card--Button--Save"
-          >
-            Save
-          </Button>
-        </div>
-        <div className="project--Desc--Bottom">
-          <div className="project--Desc--Title">
-            Pinnipeds, commonly known as seals diverse....
-          </div>
-          <div className="project--Desc--Bottom--Like">
-            <Button
-              size="small"
-              variant="contained"
-              endIcon={<FavoriteBorderIcon />}
-              className="project--Card--Button--Like"
-            >
-              13.4k
-            </Button>
-          </div>
-        </div>
+      <CardMedia
+        component="img"
+        height="150"
+        image={props.url}
+        alt="Paella dish"
+      />
+      <CardContent>
+      Pinnipeds, commonly known as seals diverse....
+      <IconButton aria-label="add to favorites">
+          <FavoriteBorderIcon />
+        </IconButton>
+      </CardContent>
+      
+    </Card>
+      <div className="pin--Content">
+        <span className="pin--Content--Title">{props.title}</span>
       </div>
-    </div>
+    </Box>
   );
 };
 

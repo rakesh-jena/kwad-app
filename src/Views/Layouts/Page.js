@@ -46,6 +46,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 export default function Page(props) {
   const { children } = props;
   const [open, setOpen] = React.useState(true);
+  const location = useLocation();
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -57,10 +58,9 @@ export default function Page(props) {
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <Header open={open}/>
+        <Header open={open} search={props.searchBar}/>
       <Sidebar open={open} drawerWidth={drawerWidth} handleDrawerClose={handleDrawerClose}/>
-
-      <Main open={open}>
+      <Main open={open} sx={props.scroll ? ({overflowY:'scroll'}) : ''}>
         <Container>
           <DrawerHeader />
           {children}
