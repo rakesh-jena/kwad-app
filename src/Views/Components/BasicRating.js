@@ -15,7 +15,7 @@ const BasicRating = (props) => {
     >
       <Rating
         name="read-only"
-        value={value}
+        value={props.rating}
         readOnly
         sx={{ fontSize: `${props.fontSize}` }}
         className="basicRating--Rating"

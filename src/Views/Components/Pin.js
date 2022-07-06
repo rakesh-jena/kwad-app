@@ -1,63 +1,47 @@
 import React, { useContext } from "react";
 import "./Pin.scss";
 import BasicRating from "./BasicRating";
-import Button from "@mui/material/Button";
+import { Box, Card, CardHeader,CardMedia,CardContent,CardActions,IconButton } from "@mui/material";
 import IosShareIcon from "@mui/icons-material/IosShare";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import ShareIcon from "@mui/icons-material/Share";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
 const Pin = (props) => {
   return (
-    <div className="pin">
-      <div className="pin--Wrapper">
-        <div className="pin--Container">
-          <img
-            src={props.url}
-            alt="image1"
-            className= "openImage"
-          />
-
-          <div className="pin--Container--Desc">
-            <div className="pin--Container--Desc--Buttons">
-              <Button
-                size="small"
-                variant="contained"
-                startIcon={<IosShareIcon />}
-                className="pin--Container--Card--Button--Share"
-              />
-              <Button
-                variant="contained"
-                size="small"
-                className="pin--Container--Card--Button--Save"
-              >
-                Save
-              </Button>
-            </div>
-            <div className="pin--Container--Desc--Bottom">
-              <p className="pin--Container--Desc--Title">
-                Pinnipeds, commonly known as seals diverse....
-              </p>
-              <div className="pin--Container--Desc--Bottom--Like">
-                <Button
-                  size="small"
-                  variant="contained"
-                  endIcon={<FavoriteBorderIcon />}
-                  className="pin--Container--Card--Button--Like"
-                >
-                  13.4k
-                </Button>
-              </div>
-            </div>
-          </div>
-          <div className="pin--Content">
-            <span className="pin--Content--Title">Title</span>
-            <div className="pin--Content--Rating">
-              <BasicRating />
-            </div>
-          </div>
+  <Box className="pin-wrapper">
+    <Card sx={{ maxWidth: 345,borderRadius:'10px',maxHeight:150 }}>
+      <CardHeader
+        action={<div>
+          <IconButton aria-label="add to favorites">
+          <FavoriteIcon />
+        </IconButton>
+        <IconButton aria-label="share">
+          <ShareIcon />
+        </IconButton></div>
+        }
+      />
+      <CardMedia
+        component="img"
+        height="150"
+        image={props.url}
+        alt="Paella dish"
+      />
+      <CardContent>
+      Pinnipeds, commonly known as seals diverse....
+      <IconButton aria-label="add to favorites">
+          <FavoriteBorderIcon />
+        </IconButton>
+      </CardContent>
+      
+    </Card>
+      <div className="pin--Content">
+        <span className="pin--Content--Title">{props.title}</span>
+        <div className="pin--Content--Rating">
+          <BasicRating rating={props.rating}/>
         </div>
       </div>
-    </div>
+    </Box>
   );
 };
-
 export default Pin;

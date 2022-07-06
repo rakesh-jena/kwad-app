@@ -1,106 +1,57 @@
 @import "../../Style/color";
 
-.pin--Wrapper {
-  display: inline-flex;
-  padding: 12px 12px 12px 0;
-}
-
-.pin--Container {
-  position: relative;
-  cursor: pointer;
-  .openImage {
-    display: flex;
-    max-width: 340px;
-    min-width: 200px;
-    border-radius: 16px;
-    object-fit: cover;
-  }
-  .closeImage {
-    display: flex;
-    max-width: 325px;
-    min-width: 200px;
-    border-radius: 16px;
-    object-fit: cover;
-  }
-}
-
-.pin--Container--Desc {
-  position: absolute;
-  width: 325px;
-  top: 0;
-  color: #f6f6f6;
-  opacity: 0;
-  padding: 8px 10px 10px 8px;
-}
-
-.pin--Container:hover .pin--Container--Desc {
-  opacity: 1;
-  height: inherit;
-}
-
-.pin--Container--Card--Button {
-  background-color: #f6f6f6;
-  color: rgb(45, 45, 45);
-  font-family: "DM Sans";
-  font-weight: bold;
-  text-transform: capitalize;
-  height: 30px;
-  box-shadow: none;
-  &:hover {
-    background-color: #f6f6f6;
-    box-shadow: none;
-  }
-}
-
-.pin--Container--Desc--Buttons {
-  float: right;
-
-  .pin--Container--Card--Button--Share {
-    @extend .pin--Container--Card--Button;
-    margin-right: 10px;
-    padding: 0;
-  }
-
-  .pin--Container--Card--Button--Save {
-    @extend .pin--Container--Card--Button;
-  }
-}
-
-.pin--Container--Desc--Bottom {
-  margin-top: 100px;
-
-  .pin--Container--Desc--Title {
-    font-family: "DM Sans";
-    color: black;
-    line-height: 1.2;
-    font-size: 18px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 2; /* number of lines to show */
-    line-clamp: 2;
-    -webkit-box-orient: vertical;
-  }
-
-  .pin--Container--Desc--Bottom--Like {
-    float: right;
-    .pin--Container--Card--Button--Like {
-      @extend .pin--Container--Card--Button;
+.pin-wrapper{
+  font-family: inherit;
+  margin-bottom: 10px;
+  .MuiCard-root{
+    position: relative;
+    .MuiCardHeader-root{
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      z-index: 1;
+      background-image: linear-gradient(rgba(2,50,70,1),rgba(2,50,70,0.6),rgba(2,50,70,0.3), rgba(2,50,70,0));
+      padding: 5px !important;
+      svg {
+        color: #f6f6f6;
+      }
     }
-  }
-}
-
-.pin--Content--Rating {
-  margin-left: auto;
-}
-
-.pin--Content {
-  display: flex;
-  margin-top: 16px;
-  .pin--Content--Title {
-    font-size: 18px;
-    font-family: "DM Sans";
-    font-weight: bold;
-    color: $blueWhale;
+    .MuiCardContent-root{
+      line-height: 1.2;
+      font-size: 1rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      -webkit-line-clamp: 2; /* number of lines to show */
+      line-clamp: 2;
+      -webkit-box-orient: vertical;
+      display: flex;
+      color: #f6f6f6;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      padding: 5px !important;
+      z-index: 1;
+      background-image: linear-gradient(rgba(2,50,70,0),rgba(2,50,70,1));
+      svg {
+        color: #f6f6f6;
+      }
+    }
+  }  
+  
+  .pin--Content {
+    display: flex;
+    margin-top: 5px;
+    .pin--Content--Title {
+      font-size: 1rem;
+      font-weight: bold;
+      color: $blueWhale;
+    }
+    .pin--Content--Rating {
+      margin-left: auto;
+      svg {
+        font-size: 1rem;
+      }
+    }
   }
 }

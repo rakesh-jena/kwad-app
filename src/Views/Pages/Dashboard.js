@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import Pin from "../Components/Pin";
 import Page from "../Layouts/Page";
-import { pins } from "./pins";
 import pinImg from "../../Images/photo1.jfif"
 import { Grid } from "@mui/material";
 
@@ -22,7 +21,7 @@ export default function Dashboard () {
                     <Pin url={pinImg}/>          
                 </Grid>
                 <Grid item md={3} sm={4}  className="dashboardContent">          
-                    <Pin url={pinImg}/>          
+                    <Pin url={pinImg} rating={2} title="Demo"/>          
                 </Grid>
                 <Grid item md={3} sm={4}  className="dashboardContent">          
                     <Pin url={pinImg}/>          
