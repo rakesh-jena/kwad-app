@@ -1,9 +1,9 @@
 import React from "react";
-import './Profile.scss';
+import "./Profile.scss";
 import PropTypes from 'prop-types';
 import Page from "../Layouts/Page";
 import profileImg from "../../Images/userPic.png"
-import { Grid, Box, Button, Avatar, Rating, Select, FormControl, MenuItem, Tab, Tabs } from "@mui/material";
+import { Grid, Box, Button, IconButton, Rating, Select, FormControl, MenuItem, Tab, Tabs } from "@mui/material";
 import PersonIcon from "@mui/icons-material/Person";
 import ChatBubbleIcon from "@mui/icons-material/ChatBubble";
 import Project from "../Components/Project";
@@ -65,27 +65,27 @@ export default function Profile (props) {
     return (
         <Page scroll={true} searchBar={true}>
             <Grid container className="profile-container">
-                <Grid item sm={6} className="profileLeft">
+                <Grid item sm={3} className="profileLeft">
                     <Box>
                         <div className="profile-img-wrapper">
-                            <img src={profileImg} alt="Profile" className="profile-img"/>
+                            <img src={profileImg} alt="Profile" />
                         </div>
                         
                         <div className="connectUser">
-                            <Button
+                            <Button 
                             variant="outlined"
-                            size="medium"
+                            size="small"
                             className="Connect"
                             >
                             Connect
                             </Button>
-                            <Avatar
-                            sx={{ bgcolor: "#023246" }}
+                            <IconButton
+                            sx={{ bgcolor: "#023246",color:"#f9f9f9" }}
                             className="Message"
                             >
                             <ChatBubbleIcon />
-                            </Avatar>
-                            <Button
+                            </IconButton>
+                            <Button size="small"
                             variant="outlined"
                             startIcon={<PersonIcon />}
                             className="Follow"
@@ -103,7 +103,7 @@ export default function Profile (props) {
                         </div>
                     </Box>
                 </Grid>
-                <Grid item sm={6} className="profileRight">
+                <Grid item sm={9} className="profileRight">
                     <Box className="userDetails">
                         <h4 className="userName">Trevor</h4>
                         <h6 className="userDesignation">Software Engineer</h6>

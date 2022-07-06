@@ -1,9 +1,34 @@
 @import "../../Style/color";
 
-.profile-container {
-    .profile-left {
-        .profile-img {
-            width: 300px;
+.profile-img-wrapper img {
+    border: 2px solid $blueWhale;
+    border-radius: 10px;
+    padding: 10px;
+    width: 250px;
+}
+
+.profileLeft{
+    .MuiBox-root{
+        max-width: 250px;
+        width: 100%;
+        .connectUser {
+            display: inline-flex;
+            width: 100%;
+            .MuiButton-root {
+                background-color: #d4d4ce;
+                color:#023246;
+                border-color:transparent;
+                border-radius: 10px;
+                text-transform: capitalize;
+                font-family: inherit;
+                padding: 0 5px;
+                margin: auto;
+            }
+            .MuiButton-root:hover {
+                background-color: transparent;
+                border-color:#023246;
+            }
         }
     }
 }
+
