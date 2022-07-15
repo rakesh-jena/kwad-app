@@ -7,8 +7,8 @@ export default function OptionDesc(props) {
         <div className="">
             <img className="logo" src="" alt="logo"/>
             <h1></h1>
-            <h6></h6>
-            <h6></h6>
+            <p></p>
+            <h4></h4>
             <div className="option">
                 <div className="box">
                     <p></p>
