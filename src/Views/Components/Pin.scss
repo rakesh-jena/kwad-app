@@ -3,9 +3,29 @@
 .pin-wrapper{
   font-family: inherit;
   margin-bottom: 10px;
+  .MuiButton-root{
+    background-color: #f6f6f6;
+    color: #023246 !important;
+    font-family: 'DM Sans Bold';
+    text-transform: capitalize;
+    padding: 3px;
+    min-width: 10px;
+    line-height: 1;
+    font-size: 0.6rem;
+    border: 1px solid transparent;
+    &:hover{
+      background-color: #f6f6f6;
+      border-color: #023246;
+    }
+    svg {
+      color: #023246;
+      font-size: 0.6rem;
+    }
+  }
   .MuiCard-root{
     position: relative;
     .MuiCardHeader-root{
+      display: none;
       position: absolute;
       top: 0;
       right: 0;
@@ -13,32 +33,44 @@
       z-index: 1;
       background-image: linear-gradient(rgba(2,50,70,1),rgba(2,50,70,0.6),rgba(2,50,70,0.3), rgba(2,50,70,0));
       padding: 5px !important;
-      svg {
-        color: #f6f6f6;
+      .MuiCardHeader-action {
+        margin: 0;
       }
     }
     .MuiCardContent-root{
-      line-height: 1.2;
-      font-size: 1rem;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      -webkit-line-clamp: 2; /* number of lines to show */
-      line-clamp: 2;
-      -webkit-box-orient: vertical;
-      display: flex;
-      color: #f6f6f6;
+      display: none;      
       position: absolute;
       bottom: 0;
       right: 0;
       padding: 5px !important;
       z-index: 1;
       background-image: linear-gradient(rgba(2,50,70,0),rgba(2,50,70,1));
-      svg {
+      p {
+        display: -webkit-box;
+        line-height: 1.2;
+        font-size: 1rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 2; /* number of lines to show */
+        line-clamp: 2;
+        -webkit-box-orient: vertical;
         color: #f6f6f6;
+        margin: 0;
       }
     }
-  }  
-  
+  } 
+  .MuiCard-root:hover .MuiCardHeader-root {
+    display: flex;
+  } 
+  .MuiCard-root:hover .MuiCardContent-root {
+    display: inline-flex;
+  }
+  .MuiCard-root:hover .MuiCardContent-root .MuiButtonBase-root{
+    display: inline-flex;
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+  }
   .pin--Content {
     display: flex;
     margin-top: 5px;

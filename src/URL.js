@@ -11,6 +11,7 @@ import Profile from "./Views/Pages/Profile";
 import Settings from "./Views/Pages/Settings";
 import Message from "./Views/Pages/Message";
 import Notification from "./Views/Pages/Notification";
+import ViewProfile from "./Views/Pages/ViewProfile";
 
 const URL = (props) => {
   return (
@@ -27,6 +28,7 @@ const URL = (props) => {
         <Route path="/settings" element={<Settings/>}/>  
         <Route path="/message" element={<Message/>}/>
         <Route path="/notifications" element={<Notification/>}/>
+        <Route path="/view-profile" element={<ViewProfile/>}/>
       </Routes>
     </BrowserRouter>
   );

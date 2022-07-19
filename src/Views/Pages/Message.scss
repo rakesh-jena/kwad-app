@@ -1,0 +1,165 @@
+@import "../../Style/color";
+@import "../../Style/fonts";
+
+.MuiAvatar-img {
+    border-radius: 10px;
+}
+.Message-wrapper {
+    height: calc(100% - 64px);
+    border-top: 2px solid #d4d4ce;
+    .Message-panel {
+        border-right: 2px solid #d4d4ce;
+        .chatList {
+            padding: 20px 20px 0 0;
+            .chat-header {
+                margin-bottom: 20px;
+                .chat-header-top {
+                    display: flex;
+                    .title {
+                        font-size: 1.3rem;
+                        font-weight: 600;
+                    }
+                    .MuiBox-root {
+                        margin-left: auto;
+                    }
+                }
+                .css-xcvi95 {
+                    box-shadow: none;
+                    background-color: #f1f1f1;
+                    svg {
+                        color: #d4d4ce;
+                    }
+                }
+            }
+            .list {
+                .chat-wrapper {
+                    padding: 10px 0;
+                    .chat-avatar {
+                        .MuiAvatar-root{
+                            margin-left: auto;
+                        }                      
+                    }
+                    .chat-details {
+                        padding: 0 5px;
+                        h4 {
+                            margin: 0;
+                            line-height: .95rem;
+                        }
+                        p {
+                            margin: 0;
+                            color: #a1a1a1;
+                        }
+                    }
+                    .chat-time p{
+                        color: #a1a1a1;
+                        margin-bottom: auto;
+                    }
+                }
+                .chat-wrapper:hover {
+                    background-color: #f1f1f1;
+                    border-radius: 10px;
+                }
+            }
+        }
+        .currentChat {
+            padding: 20px 10px;
+            display: flex;
+            height: 100%;
+            flex-direction: column;
+            .currentChat-header {
+                display: flex;
+                background-color: #f1f1f1;
+                padding: 10px;
+                border-radius: 10px;
+                .MuiAvatar-root {
+                    margin: auto 0;
+                }
+                h4 {
+                    font-size: 1.5rem;
+                    margin: auto 0;
+                    margin-left: 5px;
+                }
+                .MuiBox-root {
+                    margin-left: auto;
+                    svg {
+                        color: #023246;
+                        font-size: 1.9rem;
+                    }
+                }
+            }
+            .msg-time {
+                margin: auto;
+                text-align: center;
+                color: #a1a1a1;
+            }
+            .message-container {
+                flex-grow: 1;
+            }
+            .message-bottom {
+                display: flex;
+                svg {
+                    color: #023246;
+                    font-size: 1.9rem;
+                    margin: auto;
+                }
+            }
+        }
+        .userFiles {
+            padding: 20px 0 20px 20px;
+            display: flex;
+            height: 100%;
+            flex-direction: column;
+            .userFiles-header {
+                .MuiAvatar-root {
+                    width: 150px;
+                    height: 150px;
+                    margin: auto;
+                }
+                h2 {
+                    font-size: 1.5rem;
+                    margin: 10px 0;
+                    text-align: center;
+                }
+            }
+            .userFiles-tab {
+                flex-grow: 1;
+                .MuiTabs-root {
+                    .MuiTabs-flexContainer {
+                        background-color: #f1f1f1;
+                        border-radius: 10px;
+                        .MuiButtonBase-root {
+                            color: #023246;
+                            padding: 10px;                            
+                            min-width: auto;
+                            width: 33.333333%;
+                            margin: auto;
+                            min-height: 10px;
+                        }
+                        .Mui-selected {
+                            background-color: #023246;
+                            color: #f9f9f9;
+                            border-radius: 10px;
+                        }
+                    }
+                    .MuiTabs-indicator {
+                        display: none;
+                    }
+                }
+            }
+            .privacy {
+                background-color: #f1f1f1;
+                border-radius: 10px;
+                padding: 10px 20px;
+                h6 {
+                    margin: 0 5px;
+                    font-size: 0.85rem;
+                }
+                p {
+                    margin: 0 5px;
+                    font-size: 0.85rem;
+                    color: #a1a1a1;
+                }
+            }
+        }
+    }
+}

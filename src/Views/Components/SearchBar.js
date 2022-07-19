@@ -8,10 +8,13 @@ const Search = styled('div')(({ theme }) => ({
     borderRadius: '10px',
     backgroundColor: 'transparent',
     '&:hover': {
-      
+      boxShadow: '#a3e1d77a 0px 0px 4px',
+    },
+    '&:focus-within':{
+      boxShadow: '#a3e1d7 0px 0px 3px',
     },
     width: '100%',
-    boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px',
+    boxShadow: 'rgba(0, 0, 0, 0.16) 0px 0px 4px',
     [theme.breakpoints.up('sm')]: {
     },
   }));

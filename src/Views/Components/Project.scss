@@ -24,8 +24,8 @@
       text-overflow: ellipsis;
       -webkit-line-clamp: 2; /* number of lines to show */
       line-clamp: 2;
+      display: -webkit-box;
       -webkit-box-orient: vertical;
-      display: flex;
       color: #f6f6f6;
       position: absolute;
       bottom: 0;

@@ -1,0 +1,78 @@
+@import "../../Style/color";
+@import "../../Style/fonts";
+
+.viewProfile {
+    background-color: #023246;
+    
+    .mainHeader {
+        padding: 10px 20px;
+        img {
+            width: 120px;
+        }
+    }
+    .mainContainer {
+        background-color: #f9f9f9;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        padding: 20px 0;
+        .vp-header{
+            display: flex;
+            margin-bottom: 20px;
+            .left-block {
+                display: flex;
+                .MuiAvatar-root {
+                    margin: auto;
+                }
+                .details{
+                    margin-left: 10px;
+                    h4 {
+                        margin: 0;
+                        font-size: 1.8rem;
+                        font-family: 'Benzin Bold';
+                        font-weight: 600;
+                        color: #023246;
+                    }
+                    h6 {
+                        margin: 0;
+                        font-size: initial;
+                        color: #a1a1a1;
+                    }
+                }                
+            }
+            .right-block {
+                margin: auto 0 auto auto;
+                .MuiButton-root {
+                    background-color: #d4d4ce; 
+                    color: #023246;
+                    border-radius: 10px;
+                    text-transform: capitalize;
+                    font-family: inherit;
+                    padding: 5px 15px;
+                    margin: auto;
+                    font-weight: bolder;
+                    font-size: 1rem;
+                    line-height: 1.5;
+                    margin-left: 10px;
+                }
+                .MuiButton-root:hover {
+                    color: #f9f9f9; 
+                    background-color: #023246;
+                }
+            }
+        }
+        .vp-container{
+            .vp-cover {
+                margin-bottom: 40px;
+                img {
+                    width: 100%;
+                }
+                
+            }
+            .vp-desc {
+                p{
+                    color: #a1a1a1;
+                }
+            }
+        }
+    }
+}

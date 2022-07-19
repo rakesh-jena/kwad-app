@@ -1,37 +1,41 @@
 import React, { useContext } from "react";
 import "./Pin.scss";
 import BasicRating from "./BasicRating";
-import { Box, Card, CardHeader,CardMedia,CardContent,CardActions,IconButton } from "@mui/material";
+import { Box, Card, CardHeader,CardMedia,CardContent,Button,IconButton, sliderClasses } from "@mui/material";
 import IosShareIcon from "@mui/icons-material/IosShare";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
 const Pin = (props) => {
+  const str = 'The quick brown fox jumps over the lazy dog.';
   return (
   <Box className="pin-wrapper">
-    <Card sx={{ maxWidth: 345,borderRadius:'10px',maxHeight:150 }}>
+    <Card sx={{ maxWidth: 345,borderRadius:'10px' }}>
       <CardHeader
         action={<div>
-          <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
-        </IconButton>
-        <IconButton aria-label="share">
-          <ShareIcon />
-        </IconButton></div>
+          <Button aria-label="add to favorites" sx={{mr:'5px'}}>
+            <ShareIcon />
+          </Button>
+          <Button aria-label="share">
+            Save
+          </Button>
+          </div>
         }
       />
       <CardMedia
         component="img"
-        height="150"
+        
         image={props.url}
         alt="Paella dish"
       />
       <CardContent>
-      Pinnipeds, commonly known as seals diverse....
-      <IconButton aria-label="add to favorites">
+        <p>{str.slice(0, 30)}....</p>
+        <Button aria-label="add to favorites">
+          13.1k&nbsp;
           <FavoriteBorderIcon />
-        </IconButton>
+        </Button>
+        
       </CardContent>
       
     </Card>

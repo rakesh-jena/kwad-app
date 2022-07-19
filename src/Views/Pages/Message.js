@@ -1,25 +1,35 @@
 import React, { useContext } from "react";
 import PropTypes from 'prop-types';
 import './Message.scss';
+import { styled } from '@mui/material/styles';
 import SearchBar from "../Components/SearchBar";
 import Page from "../Layouts/Page";
 import SearchIcon from "@mui/icons-material/Search";
-import AddIcon from "@mui/icons-material/Add";
+import AddRoundedIcon from '@mui/icons-material/AddRounded';
+import AddIcCallRoundedIcon from '@mui/icons-material/AddIcCallRounded';
+import VideocamRoundedIcon from '@mui/icons-material/VideocamRounded';
+import AddCircleRoundedIcon from '@mui/icons-material/AddCircleRounded';
+import SendRoundedIcon from '@mui/icons-material/SendRounded';
+import EmojiEmotionsRoundedIcon from '@mui/icons-material/EmojiEmotionsRounded';
 import pinImg from "../../Images/photo1.jfif"
-import { Box, Grid, IconButton, Avatar, Tab, Tabs} from "@mui/material";
+import { Box, Grid, IconButton, Avatar, Tab, Tabs, InputBase} from "@mui/material";
 
 function Chats(props) {
     return (
         <div className="chatList">
             <div className="chat-header">
                 <div className="chat-header-top">
-                    <h4>Chats</h4>
+                    <span className="title">Chats</span>
                     <Box>
-                        <IconButton>
+                        <IconButton style={{
+                            color:'#d4d4ce'
+                        }}>
                             <SearchIcon/>
                         </IconButton>
-                        <IconButton>
-                            <AddIcon/>
+                        <IconButton style={{
+                            color:'#023246'
+                        }}>
+                            <AddRoundedIcon/>
                         </IconButton>
                     </Box>
                 </div>
@@ -28,7 +38,7 @@ function Chats(props) {
             <div className="list">
                 <Grid container className="chat-wrapper">
                     <Grid className="chat-avatar" item sm={2}>
-                        <Avatar src={pinImg} alt="Avatar"/>
+                        <Avatar variant="square" src={pinImg} alt="Avatar"/>
                     </Grid>
                     <Grid className="chat-details" item sm={8}>
                         <h4>John Doe</h4>
@@ -40,7 +50,7 @@ function Chats(props) {
                 </Grid>
                 <Grid container className="chat-wrapper">
                     <Grid className="chat-avatar" item sm={2}>
-                        <Avatar src={pinImg} alt="Avatar"/>
+                        <Avatar variant="square" src={pinImg} alt="Avatar"/>
                     </Grid>
                     <Grid className="chat-details" item sm={8}>
                         <h4>John Doe</h4>
@@ -52,7 +62,7 @@ function Chats(props) {
                 </Grid>
                 <Grid container className="chat-wrapper">
                     <Grid className="chat-avatar" item sm={2}>
-                        <Avatar src={pinImg} alt="Avatar"/>
+                        <Avatar variant="square" src={pinImg} alt="Avatar"/>
                     </Grid>
                     <Grid className="chat-details" item sm={8}>
                         <h4>Awesome Doe</h4>
@@ -64,7 +74,7 @@ function Chats(props) {
                 </Grid>
                 <Grid container className="chat-wrapper">
                     <Grid className="chat-avatar" item sm={2}>
-                        <Avatar src={pinImg} alt="Avatar"/>
+                        <Avatar variant="square" src={pinImg} alt="Avatar"/>
                     </Grid>
                     <Grid className="chat-details" item sm={8}>
                         <h4>Rakesh Jena</h4>
@@ -83,7 +93,7 @@ function TabPanel(props) {
     const { children, value, index, ...other } = props;
   
     return (
-      <div
+      <div className="tabpanel"
         role="tabpanel"
         hidden={value !== index}
         id={`profile-tabpanel-${index}`}
@@ -120,25 +130,23 @@ function UserFiles(props) {
     return (
         <div className="userFiles">
             <div className="userFiles-header">
-                <Avatar src={pinImg} alt="Avatar"/>
+                <Avatar variant="square" src={pinImg} alt="Avatar"/>
                 <h2>Laura Geni</h2>
             </div>
             <div className="userFiles-tab">
-                <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                    <Tabs value={value} onChange={handleChange} aria-label="Profile tabs">
-                        <Tab label="Media" {...a11yProps(0)} />
-                        <Tab label="Files" {...a11yProps(1)} />
-                        <Tab label="Links" {...a11yProps(2)} />
-                    </Tabs>
-                </Box>
+                <Tabs value={value} onChange={handleChange} aria-label="UserFiles tabs">
+                    <Tab label="Media" {...a11yProps(0)} />
+                    <Tab label="Files" {...a11yProps(1)} />
+                    <Tab label="Links" {...a11yProps(2)} />
+                </Tabs>
                 <TabPanel value={value} index={0}>
-                    Media
+                    Media Panel
                 </TabPanel>
                 <TabPanel value={value} index={1}>
-                    Files
+                    Files Panel
                 </TabPanel>
                 <TabPanel value={value} index={2}>
-                    Links
+                    Links Tab
                 </TabPanel>
             </div>
             <div className="privacy">
@@ -148,21 +156,54 @@ function UserFiles(props) {
         </div>
     )
 }
-
-function MsgBar(props) {}
+const Search = styled('div')(({ theme }) => ({
+    position: 'relative',
+    borderRadius: '10px',
+    backgroundColor: '#f1f1f1',
+    width:'100%',
+    display: 'flex'
+  }));
+  
+  const SearchIconWrapper = styled('div')(({ theme }) => ({
+    pointerEvents: 'none',
+    display: 'flex',
+    marginLeft: 'auto'
+  }));
+  
+  const StyledInputBase = styled(InputBase)(({ theme }) => ({
+    color: '#919191',
+    width:'100%',
+    '& .MuiInputBase-input': {
+      padding: theme.spacing(0,1),
+      width: '100%',
+    },
+  }));
+function MsgBar(props) {
+    return (
+        <Search >            
+            <StyledInputBase
+              placeholder="Write a message"
+              inputProps={{ 'aria-label': 'message' }}
+            />
+            <SearchIconWrapper>
+              <EmojiEmotionsRoundedIcon sx={{color:'#023246'}}/>
+            </SearchIconWrapper>
+          </Search>
+    );
+}
 
 function CurrentChat(props) {
     return (
         <div className="currentChat">            
             <div className="currentChat-header">
-                <Avatar src={pinImg} alt="Avatar"/> 
+                <Avatar variant="square" src={pinImg} alt="Avatar"/> 
                 <h4>Laura Geni</h4>
                 <Box>
                     <IconButton>
-                        <SearchIcon/>
+                        <AddIcCallRoundedIcon/>
                     </IconButton>
                     <IconButton>
-                        <AddIcon/>
+                        <VideocamRoundedIcon/>
                     </IconButton>
                 </Box>
             </div>
@@ -172,11 +213,11 @@ function CurrentChat(props) {
             </div>
             <div className="message-bottom">
                 <IconButton>
-                    <AddIcon/>
+                    <AddCircleRoundedIcon/>
                 </IconButton>
                 <MsgBar/>
                 <IconButton>
-                    <AddIcon/>
+                    <SendRoundedIcon/>
                 </IconButton>
             </div>
         </div>
@@ -186,14 +227,14 @@ function CurrentChat(props) {
 export default function Message () {
     return (
         <Page scroll={false} searchBar={true}>
-            <Grid container>
-                <Grid item md={3} sm={6}>
+            <Grid container className="Message-wrapper">
+                <Grid item md={3} sm={4} className="Message-panel">
                     <Chats/>
                 </Grid>
-                <Grid item md={6} sm={6}>
+                <Grid item md={6} sm={4} className="Message-panel">
                     <CurrentChat/>
                 </Grid>
-                <Grid item md={3} sm={0}>
+                <Grid item md={3} sm={4} className="Message-panel" style={{borderRight:'none'}}>
                     <UserFiles/>
                 </Grid>
             </Grid>

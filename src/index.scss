@@ -15,6 +15,9 @@ input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
     transition: background-color 5000s ease-in-out 0s;
 }
+h1 {
+  font-family: 'Benzin Bold'
+}
 /* width */
 ::-webkit-scrollbar {
   width: 6px;
@@ -22,7 +25,7 @@ input:-webkit-autofill:active {
 }
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #f9f9f9; 
+  background: transparent; 
   border-radius: 10px;
 }
 /* Handle */
@@ -70,6 +73,13 @@ input:-webkit-autofill:active {
 @keyframes fadeinout {
   0% { opacity: 0 }
   100% { opacity: 1 }
+}
+@keyframes slideFromLeft2Right {
+  0% { width:50% }
+  100% { width:calc(100% - 48px) }
+}
+.slideRight{
+  animation: 1s ease-out 0s 1 slideFromLeft2Right;
 }
 .fade {
   animation: fadeinout 1s linear forwards;

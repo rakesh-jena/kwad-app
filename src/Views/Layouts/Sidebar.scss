@@ -1,14 +1,16 @@
 @import "../../Style/color";
 
 .sidebar-logo-img {
-  width: 100px;
+  width: 80px;
 }
 .MuiDrawer-root {
+  background-color: #023246;
   .MuiList-root {
     top: 50%;
     transform: translateY(calc(-50% - 64px));
     overflow: hidden;
     .MuiListItem-root{
+      position: relative;
       margin: auto;
       padding: 10px;
       .MuiListItemButton-root {
@@ -25,6 +27,10 @@
             display: flex;
             color: #fff;
           }
+          .MuiBadge-badge {
+            top: 8px;
+            right: 8px;
+          }
         };
         .MuiListItemAvatar-root {
           .MuiAvatar-root {
@@ -32,8 +38,22 @@
             width: 64px;
             height: 64px;
           }
+          p {
+            margin: 0;
+            line-height: 1;
+          }
         }
       }    
+    }
+    .MuiListItem-root.active::after {
+      content: "";
+      background: #a3e1d7;
+      position: absolute;
+      bottom: 25%;
+      right: 0;
+      height: 40px;
+      width: 10px;
+      border-radius: 20px;
     }
   }
   .sidebar-toggle-btn {

@@ -8,6 +8,7 @@ import PersonIcon from "@mui/icons-material/Person";
 import ChatBubbleIcon from "@mui/icons-material/ChatBubble";
 import Project from "../Components/Project";
 import pinImg from "../../Images/photo5.jfif"
+import StarRoundedIcon from '@mui/icons-material/StarRounded';
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -17,6 +18,7 @@ function TabPanel(props) {
         role="tabpanel"
         hidden={value !== index}
         id={`profile-tabpanel-${index}`}
+        className="tabpanel-profile"
         aria-labelledby={`profile-tab-${index}`}
         {...other}
       >
@@ -65,7 +67,7 @@ export default function Profile (props) {
     return (
         <Page scroll={true} searchBar={true}>
             <Grid container className="profile-container">
-                <Grid item sm={3} className="profileLeft">
+                <Grid item md={6} sm={6} className="profileLeft">
                     <Box>
                         <div className="profile-img-wrapper">
                             <img src={profileImg} alt="Profile" />
@@ -96,32 +98,35 @@ export default function Profile (props) {
                         <div className="userCost">
                             <span>
                                 <span className="Price">
-                                    <span>&#8377;</span> {props.price}
+                                    <span>&#8377;</span>10 {props.price}
                                 </span>
                                 <span className="Text">Per Second </span>
                             </span>
                         </div>
                     </Box>
                 </Grid>
-                <Grid item sm={9} className="profileRight">
+                <Grid item md={6} sm={6} className="profileRight">
                     <Box className="userDetails">
-                        <h4 className="userName">Trevor</h4>
+                        <h1 className="userName">Trevor Stark</h1>
                         <h6 className="userDesignation">Software Engineer</h6>
                         <p className="userAbout">
                         Branding system for Grassroots Larder; A locally sourced grocer and a culinary market opening up soon on Cherry Street in Tulsa, Oklahoma. Grassroots Larder will be packed with a selection of items they deem essential: wine, beer, fresh bread, fresh pasta, sauces and special pantry items.
                         </p>
                         <div className="userRating">
-                            <Rating/>
-                            <span className="ratingNum">
-                                <span className="ratingUser">2.5/</span>
-                                5
-                            </span>
+                            <Rating value={4.3} readOnly className="user-rating" size="large"
+                            icon={<StarRoundedIcon fontSize="inherit" />}
+                            emptyIcon={<StarRoundedIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
+                            precision={0.1}/>
+                            <p className="ratingNum">
+                                <span className="ratingUser">4.3/</span>
+                                5.0
+                            </p>
                         </div>                        
                     </Box>
                 </Grid>
             </Grid>
             <Box className="Profile-bottom">
-                <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+                <Box sx={{ borderBottom: 2, borderColor: 'divider' }}>
                     <Tabs value={value} onChange={handleChange} aria-label="Profile tabs">
                         <Tab label="Projects" {...a11yProps(0)} />
                         <Tab label="Reviews" {...a11yProps(1)} />
@@ -130,21 +135,21 @@ export default function Profile (props) {
                     </Tabs>
                 </Box>
                 <TabPanel value={value} index={0}>
-                <FormControl sx={{ m: 1, minWidth: 120 }}>
-                    <Select
-                    value={age}
-                    onChange={handleSelect}
-                    displayEmpty
-                    inputProps={{ 'aria-label': 'Without label' }}
-                    >
-                    <MenuItem value="">
-                        <em>Recent</em>
-                    </MenuItem>
-                    <MenuItem value={10}>Ten</MenuItem>
-                    <MenuItem value={20}>Twenty</MenuItem>
-                    <MenuItem value={30}>Thirty</MenuItem>
-                    </Select>
-                </FormControl>
+                    <FormControl sx={{ m: 1, minWidth: 120 }}>
+                        <Select
+                        value={age}
+                        onChange={handleSelect}
+                        displayEmpty
+                        inputProps={{ 'aria-label': 'Without label' }}
+                        >
+                        <MenuItem value="">
+                            Recent
+                        </MenuItem>
+                        <MenuItem value={10}>Ten</MenuItem>
+                        <MenuItem value={20}>Twenty</MenuItem>
+                        <MenuItem value={30}>Thirty</MenuItem>
+                        </Select>
+                    </FormControl>
                     <Grid container  spacing={1} p={1} className="dashboard">
                         {loop(20)}
                     </Grid>

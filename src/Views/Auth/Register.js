@@ -3,9 +3,10 @@ import SidePanel from "./SidePanel";
 import Heading from "./Heading";
 import './Register.scss';
 import CustomPasswordField from "./CustomPasswordField";
-import { FilledInput, Button, FormControl, Grid, InputLabel, Box, TextField, MenuItem } from "@mui/material";
+import { FilledInput, Button, FormControl, Grid, Box } from "@mui/material";
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
+import { useNavigate } from "react-router-dom";
 
 
 const Register = (props) => {
@@ -14,7 +15,7 @@ const Register = (props) => {
       <Grid item md={8} sm={6} sx={{ display: { xs: 'none', sm:'block' } }}>
         <SidePanel/>
       </Grid>
-      <Grid item md={4} sm={6} xs={12} className="fade">
+      <Grid item md={4} sm={6} xs={12} className="fade" style={{paddingLeft:'20px'}}>
         <Heading
           title="Sign up"
           link="Already have an account?"
@@ -47,6 +48,7 @@ const currencies = [
 ];
 
 const RegisterForm = () => {
+  const navigate = useNavigate();
   const [formSubmit, submitForm] = useState(true);
   const [userData, setUserData] = useState({ lname: "", email:"", fname: "", password: "", code: "+91", contact: "" });
   const [errorMessage, setErrorMessage] = useState({ for: "", value:""});
@@ -98,19 +100,53 @@ const RegisterForm = () => {
         for: "contact"
       }));
     } else {
-      window.location.pathname = "/confirm-email";
+      navigate("/confirm-email");
     }
     
   };
 
   const getPassword = (e) => { 
+    const passwordInputValue = e.trim();
+    const uppercaseRegExp   = /(?=.*?[A-Z])/;
+    const lowercaseRegExp   = /(?=.*?[a-z])/;
+    const digitsRegExp      = /(?=.*?[0-9])/;
+    const specialCharRegExp = /(?=.*?[#?!@$%^&*-])/;
+    const minLengthRegExp   = /.{8,}/;
+    const passwordLength =      passwordInputValue.length;
+    const uppercasePassword =   uppercaseRegExp.test(passwordInputValue);
+    const lowercasePassword =   lowercaseRegExp.test(passwordInputValue);
+    const digitsPassword =      digitsRegExp.test(passwordInputValue);
+    const specialCharPassword = specialCharRegExp.test(passwordInputValue);
+    const minLengthPassword =   minLengthRegExp.test(passwordInputValue);
+
+    let errMsg = "";
+    if(passwordLength===0){
+      errMsg="Password is empty";
+    }else if(!uppercasePassword){
+          errMsg="At least one Uppercase";
+    }else if(!lowercasePassword){
+          errMsg="At least one Lowercase";
+    }else if(!digitsPassword){
+          errMsg="At least one digit";
+    }else if(!specialCharPassword){
+          errMsg="At least one Special Characters";
+    }else if(!minLengthPassword){
+          errMsg="At least minumum 8 characters";
+    }else{
+      errMsg="";
+    }
+    setErrorMessage((prevState) => ({
+      value: errMsg,
+      for: "password"
+    }));
+    
     if(!formSubmit){
       if(e != null && errorMessage.for === "password"){
         setErrorMessage((prevState) => ({
           value: "",
           for: ""
         }));
-      }
+      }      
     }   
     setUserData((prevState) => {
       return {
@@ -119,7 +155,7 @@ const RegisterForm = () => {
       };
     });
   };
-  const [currency, setCurrency] = useState('+91');
+  // const [currency, setCurrency] = useState('+91');
   const [phone, setPhone] = useState();
 
   const handlePhone = (e) => {    
@@ -139,16 +175,40 @@ const RegisterForm = () => {
       };
     });
   };
-  
-  const handleChange = (event) => {
-    setCurrency(event.target.value);
-    setUserData((prevState) => {
-      return {
-        ...prevState,
-        code: event.target.value,
-      };
-    });
-  };
+  function isValidEmail(email) {
+    return /\S+@\S+\.\S+/.test(email);
+  }
+
+  const handleEmailChange = (e) => {
+    if(!isValidEmail(e.target.value))
+    {
+      setErrorMessage((prevState) => ({
+        value: "Enter valid email",
+        for: "email"
+      }));
+    } else {
+      setErrorMessage((prevState) => ({
+        value: "",
+        for: ""
+      }));
+      setUserData((prevState) => {
+        return {
+          ...prevState,
+          [e.target.name]: e.target.value,
+        };
+      });
+    } 
+  }
+
+  // const handleChange = (event) => {
+  //   setCurrency(event.target.value);
+  //   setUserData((prevState) => {
+  //     return {
+  //       ...prevState,
+  //       code: event.target.value,
+  //     };
+  //   });
+  // };
   return (
     <Box>
       {errorMessage.value && (
@@ -183,7 +243,7 @@ const RegisterForm = () => {
             id="input-email"
             name="email"
             placeholder="Email"
-            onChange={(e) => handleInputChange(e)}
+            onChange={(e) => handleEmailChange(e)}
           />
         </FormControl>
         <CustomPasswordField getPasword={getPassword}/>
@@ -217,6 +277,15 @@ const RegisterForm = () => {
         inputExtraProps={{
           name: "contact",
           required: true,
+        }}
+        isValid={(value, country) => {
+          if (value.match(/12345/)) {
+            return 'Invalid value: '+value+', '+country.name;
+          } else if (value.match(/1234/)) {
+            return false;
+          } else {
+            return true;
+          }
         }}
         country={"in"}
         value={phone}

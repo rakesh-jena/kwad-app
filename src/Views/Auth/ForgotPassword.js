@@ -30,9 +30,9 @@ const ForgotPasswordForm = () => {
     };
     return (
       <Paper elevation={0} sx={{bgcolor:'transparent',position:'relative',top:'50%',transform:'translateY(-50%)',maxWidth:'90%',m:'auto'}}>
-          <Button sx={{border:'1px solid #d3d4ce',mb:2,p:'15px',borderRadius:'10px',minWidth:'24px',
+          <Button sx={{border:'2px solid #d3d4ce',mb:2,p:'15px',borderRadius:'10px',minWidth:'24px',
               "&.MuiButtonBase-root:hover": {
-                borderColor:'#a3d1e7',".MuiSvgIcon-root":{color:'#a3d1e7',}
+                borderColor:'#287194',".MuiSvgIcon-root":{color:'#a3d1e7',}
               }
             }}
             onClick={() => history(-1)}

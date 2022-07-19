@@ -1,0 +1,38 @@
+.MuiMasonry-root {
+    margin: 0;
+}
+.MuiTabs-root {
+    min-height: auto !important;
+    .MuiTabs-scroller {
+        margin: 0 10px;
+        .MuiTab-root {
+            color: #f6f6f6;
+            background-color: #919191;
+            border-radius: 10px;
+            padding: 10px;
+            line-height: 1;
+            font-family: 'DM Sans Bold';
+            text-transform: capitalize;
+            font-size: 1rem;
+            margin-right: 10px;
+            min-height: auto;
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+        .MuiTabs-indicator{
+            display: none;
+            height: 0;
+        }
+    }
+    .MuiTabs-scrollButtons {
+        color: #f6f6f6;
+        border-radius: 10px;
+        background-color: #023246;
+        opacity: 1;
+    }
+    .Mui-disabled{
+        opacity: 0;
+        display: none;
+    }
+}

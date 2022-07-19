@@ -98,7 +98,7 @@ const Login = () => {
       <Grid item md={8} sm={6} sx={{ display: { xs: 'none', sm:'block' } }}>
         <SidePanel/>
       </Grid>
-      <Grid item md={4} sm={6} xs={12} className="fade">
+      <Grid item md={4} sm={6} xs={12} className="fade" style={{paddingLeft:'20px'}}>
         <Heading
           title="Sign in"
           link="Create new account"

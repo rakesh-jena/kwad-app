@@ -1,34 +1,140 @@
 @import "../../Style/color";
+@import "../../Style/fonts";
 
 .profile-img-wrapper img {
     border: 2px solid $blueWhale;
     border-radius: 10px;
     padding: 10px;
-    width: 250px;
+    width: 300px;
 }
 
 .profileLeft{
     .MuiBox-root{
-        max-width: 250px;
+        max-width: 300px;
         width: 100%;
         .connectUser {
-            display: inline-flex;
-            width: 100%;
+            display: flex;
+            width: 300px;
             .MuiButton-root {
                 background-color: #d4d4ce;
                 color:#023246;
                 border-color:transparent;
+                border-width: 2px;
                 border-radius: 10px;
                 text-transform: capitalize;
                 font-family: inherit;
-                padding: 0 5px;
+                padding: 5px 15px;
                 margin: auto;
+                font-weight: bolder;
+                font-size: 1rem;
             }
             .MuiButton-root:hover {
                 background-color: transparent;
                 border-color:#023246;
             }
+            .Message {
+                padding: 10px;
+                svg {
+                    font-size: 2rem;
+                }
+            }
+            .Follow {
+                svg {
+                    font-size: 1.3rem;
+                }
+            }
+        }
+        .userCost {
+            .Price{
+                font-size: 2.5rem;
+                font-family: 'DM Sans Bold';
+                font-weight: bolder;
+            }
+            .Text{
+                font-weight: 600;
+            }
         }
     }
 }
 
+.profileRight {
+    .userDetails {
+        text-align: right;
+        .userName {
+            margin-bottom: 0px;
+        }
+        .userDesignation {
+            font-size: 1rem;
+            margin: 0;
+            color: grey;
+        }
+        .userAbout {
+            margin: 5px 0;
+            color: $lemongrass;
+            font-size: 1.1rem;
+        }
+        .userRating {
+            color:#023246;
+            .MuiRating-root {
+                color: #023246;
+                font-size: 3rem;
+            }
+            .ratingNum {
+                margin: 0;
+                font-size: 2rem;
+                font-weight: 600;
+                color: #d4d4ce;
+                .ratingUser {
+                    color: #023246;
+                }
+            }
+        }
+    }
+}
+
+.Profile-bottom {
+    .MuiBox-root {
+        .MuiTabs-root {
+            margin-bottom: 10px;
+            .MuiTabs-flexContainer {
+                justify-content: right; 
+                .MuiButtonBase-root {
+                    border-radius: 10px;
+                    color: #023246;
+                    text-transform: capitalize;
+                    font-weight: 600;
+                    padding: 5px 15px;
+                    margin: 0 10px;
+                    min-height: 40px;
+                    font-size: 1.1rem;
+                }
+                .Mui-selected {
+                    color: #f9f9f9;
+                    background-color: #023246;
+                }              
+            }
+            .MuiTabs-indicator {
+                display: none;
+            }
+        }
+    }
+    .tabpanel-profile {
+        margin-top: 10px;
+    }
+    #profile-tabpanel-0 {
+        .MuiInputBase-root {
+            color: #023246;
+            border-radius: 10px;
+            font-weight: 600;
+            border: 2px solid #d4d4ce;
+            .MuiSelect-select {
+                border:none;
+                border-radius: 10px;
+                padding: 10px;
+            }
+            fieldset {
+                border: none;
+            }
+        }
+    }
+}

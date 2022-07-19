@@ -16,19 +16,25 @@ const drawerWidth = 180;
 const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
   ({ theme, open }) => ({
     flexGrow: 1,
-    backgroundColor: "#f6f6f6",
+    backgroundColor: "#f9f9f9",
     transition: theme.transitions.create("margin", {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
     height: "100vh",
     marginLeft: `-${drawerWidth}px`,
+    borderTopLeftRadius: '0px',
+    borderBottomLeftRadius: '0px',
+    zIndex:'0',
     ...(open && {
       transition: theme.transitions.create("margin", {
         easing: theme.transitions.easing.easeOut,
         duration: theme.transitions.duration.enteringScreen,
       }),
-      marginLeft: 0,
+      marginLeft: '-20px',
+      borderTopLeftRadius: '20px',
+      borderBottomLeftRadius: '20px',
+      zIndex:'1213',
     }),
     ...(open === false && {})
   })
@@ -61,11 +67,12 @@ export default function Page(props) {
         <Header open={open} search={props.searchBar}/>
       <Sidebar open={open} drawerWidth={drawerWidth} handleDrawerClose={handleDrawerClose}/>
       <Main open={open} sx={props.scroll ? ({overflowY:'scroll'}) : ''}>
-        <Container>
+        <Container style={{height:'100%'}}>
           <DrawerHeader />
           {children}
         </Container>
-        <Button className="sidebar-toggle-btn" onClick={handleDrawerOpen}>
+        <Button disableRipple className="sidebar-toggle-btn" onClick={handleDrawerOpen}
+        sx={open ? ({display:'none'}) : ({})}>
           <ArrowRightRoundedIcon/>
         </Button>
       </Main>
