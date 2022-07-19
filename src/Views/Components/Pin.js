@@ -11,7 +11,7 @@ const Pin = (props) => {
   const str = 'The quick brown fox jumps over the lazy dog.';
   return (
   <Box className="pin-wrapper">
-    <Card sx={{ maxWidth: 345,borderRadius:'10px' }}>
+    <Card sx={{ maxWidth: props.maxWidth,borderRadius:'10px',maxHeight: props.maxHeight }}>
       <CardHeader
         action={<div>
           <Button aria-label="add to favorites" sx={{mr:'5px'}}>
@@ -23,14 +23,12 @@ const Pin = (props) => {
           </div>
         }
       />
-      <CardMedia
-        component="img"
-        
+      <CardMedia component="img"
         image={props.url}
         alt="Paella dish"
       />
       <CardContent>
-        <p>{str.slice(0, 30)}....</p>
+        <p>{str.slice(0, 50)}....</p>
         <Button aria-label="add to favorites">
           13.1k&nbsp;
           <FavoriteBorderIcon />

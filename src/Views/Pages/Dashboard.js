@@ -100,7 +100,7 @@ export default function Dashboard () {
           </Box>
             <Masonry columns={{ xs: 2, sm: 3, md:4 }} spacing={2} className="dashboard">
             {itemData.map((item, index) => (
-              <Pin key={index} url={`${item.img}?w=350&auto=format`} rating={2} title={item.title}/>
+              <Pin maxWidth={350} key={index} url={`${item.img}?w=350&auto=format`} rating={2} title={item.title}/>
             ))}
             </Masonry>
         </Page>

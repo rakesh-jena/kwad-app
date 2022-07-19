@@ -10,6 +10,7 @@ import Header from "./Header";
 import Sidebar from "./Sidebar";
 import ArrowRightRoundedIcon from '@mui/icons-material/ArrowRightRounded';
 import Button from '@mui/material/Button';
+import Chat from "../Components/Chat";
 
 const drawerWidth = 180;
 
@@ -71,10 +72,11 @@ export default function Page(props) {
           <DrawerHeader />
           {children}
         </Container>
-        <Button disableRipple className="sidebar-toggle-btn" onClick={handleDrawerOpen}
+        <Button className="sidebar-toggle-btn" onClick={handleDrawerOpen}
         sx={open ? ({display:'none'}) : ({})}>
           <ArrowRightRoundedIcon/>
         </Button>
+        
       </Main>
     </Box>
   );

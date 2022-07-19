@@ -6,7 +6,7 @@ import profileImg from "../../Images/userPic.png"
 import { Grid, Box, Button, IconButton, Rating, Select, FormControl, MenuItem, Tab, Tabs } from "@mui/material";
 import PersonIcon from "@mui/icons-material/Person";
 import ChatBubbleIcon from "@mui/icons-material/ChatBubble";
-import Project from "../Components/Project";
+import Pin from "../Components/Pin";
 import pinImg from "../../Images/photo5.jfif"
 import StarRoundedIcon from '@mui/icons-material/StarRounded';
 
@@ -58,7 +58,7 @@ export default function Profile (props) {
         for (let i = 0; i < index; i++) {
           content.push(
             <Grid key={i} item md={3} sm={4}  className="dashboardContent">          
-                <Project url={pinImg} rating={2} title="Demo"/>          
+                <Pin maxWidth={350} maxHeight={150} url={pinImg} rating={2} title="Demo"/>          
             </Grid>
             );
         }

@@ -1,0 +1,73 @@
+.chat {
+    position: absolute;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    width: 300px;
+    height: 80vh;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    right: 0;
+    padding: 15px;
+    .chat-header {
+        margin-bottom: 20px;
+        .chat-header-top {
+            display: flex;
+            .title {
+                font-size: 2rem;
+                font-weight: 600;
+                color: #023246;
+            }
+            .MuiBox-root {
+                margin: auto 0;
+                margin-left: auto;
+            }
+        }
+        .css-xcvi95 {
+            box-shadow: none;
+            background-color: #f1f1f1;
+            svg {
+                color: #d4d4ce;
+            }
+        }
+    }
+    .list {
+        overflow-y: scroll;
+        height: 55vh;
+        overflow-x: hidden;
+        .chat-wrapper {
+            padding: 10px 0;
+            .chat-avatar {
+                .MuiAvatar-root{
+                    margin-left: auto;
+                }                      
+            }
+            .chat-details {
+                padding: 0 5px;
+                h4 {
+                    margin: 0;
+                    line-height: .95rem;
+                    color: #023246;
+                }
+                p {
+                    margin: 0;
+                    color: #a1a1a1;
+                }
+            }
+            .chat-time p{
+                color: #a1a1a1;
+                margin-bottom: auto;
+            }
+        }
+        .chat-wrapper:hover {
+            background-color: #f1f1f1;
+            border-radius: 10px;
+        }
+    }
+    .see-more {
+        background: #023246;
+        color: #f9f9f9;
+        border-radius: 15px;
+        width: 100%;
+        text-transform: capitalize;
+        font-weight: 600;
+    }
+}

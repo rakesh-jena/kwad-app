@@ -13,6 +13,7 @@ import MailIcon from '@mui/icons-material/Mail';
 import NotificationsRoundedIcon from "@mui/icons-material/NotificationsRounded";
 import SettingsRoundedIcon from "@mui/icons-material/SettingsRounded";
 import SearchBar from '../Components/SearchBar';
+import Chat from "../Components/Chat";
 
 const drawerWidth = 180;
 
@@ -40,9 +41,17 @@ const AppBar = styled(MuiAppBar, {
 
 export default function Header(props) {
   const {open} = props;
+  const [chat, setChat] = React.useState(false);
+
+  const chatOpen = () => {
+    setChat(true);
+  };
+  const chatClose = () => {
+    setChat(false);
+  }
   return (
     <AppBar position="fixed" open={open} className={open ? 'header-closed' : 'header-opened'}>
-      <Container>
+      <Container style={{position:'relative'}}>
         
         <Toolbar disableGutters sx={{bgcolor:'#f9f9f9'}}>  
           {open ? '' : (
@@ -78,8 +87,10 @@ export default function Header(props) {
               src={filterIcon}
               alt="filter--icon"
               className="appbar-filter-Icon"
-            />}/>
+            />} onClick={chat ? chatClose : chatOpen}/>
         </Toolbar>
+        <Chat open={chat}/>
+        
       </Container>
     </AppBar>
   );
